@@ -1,13 +1,15 @@
+"use client";
+
 import { useState } from "react";
 import { FiEdit, FiSave } from "react-icons/fi";
-import { useUpdateMobileContentMutation } from "../../../redux/api/mobileApiSlice";
 import LoadingSmall from "../../shared/LoadingSmall";
+import { useUpdateMobileContentMutation } from "@/redux/api/adminApiSlice";
 
 interface Props {
-  id: string;
-  title: string;
-  info: string;
-  fieldName: string;
+  id?: string;
+  title?: string;
+  info?: string;
+  fieldName?: string;
   type?: string;
 }
 

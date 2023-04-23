@@ -1,3 +1,5 @@
+"use client";
+
 import React from "react";
 import { BsCheckCircle } from "react-icons/bs";
 import { AiOutlineCloseCircle } from "react-icons/ai";

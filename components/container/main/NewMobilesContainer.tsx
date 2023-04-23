@@ -11,13 +11,12 @@ const getData = async (path: string) => {
 
 const NewMobilesContainer = async ({ path }: { path: string }) => {
   const { data } = await getData(path);
-  const mobiles = [...data, ...data];
   return (
     <section className="card-container rounded  bg-primary-bg-light dark:bg-primary-bg-dark p-4 border dark:border-primary-bg-dark ">
       {data.length === 0 && (
         <h3 className="font-bold text-center ">No data found</h3>
       )}
-      {mobiles.map((item: any) => {
+      {data.map((item: any) => {
         return (
           <Link
             key={item._id}

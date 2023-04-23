@@ -12,6 +12,11 @@ const nextConfig = {
       },
     ],
   },
+  env: {
+    API_URL: process.env.API_URL,
+    IMGDB_API_KEY: process.env.IMGDB_API_KEY,
+    TOKEN_NAME: process.env.TOKEN_NAME,
+  },
 };
 
 module.exports = nextConfig;

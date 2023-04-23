@@ -1,254 +1,262 @@
+"use client";
+
 import { useSelector } from "react-redux";
-import { RootState } from "../../../redux/store";
+
 import UpdateInput from "./UpdateInput";
 import UpdateArrayInput from "./UpdateArrayInput";
+import { RootState } from "@/redux/store";
 
 const ContentUpdateFrom = () => {
   const { mobile } = useSelector((state: RootState) => state.mobileUpdate);
   return (
     <section className="col-span-3 rounded border bg-white p-8">
       <UpdateInput
-        info={mobile.brandName}
+        info={mobile?.brandName}
         fieldName="brandName"
         title="Brand Name"
-        id={mobile._id}
+        id={mobile?._id}
       />
       <UpdateInput
-        info={mobile.model}
+        info={mobile?.model}
         fieldName="model"
         title="Model"
-        id={mobile._id}
+        id={mobile?._id}
       />
       <UpdateInput
-        info={mobile.releasedDate}
+        info={mobile?.releasedDate}
         fieldName="releasedDate"
         title="Rel. Date"
-        id={mobile._id}
+        id={mobile?._id}
         type="date"
       />
       <UpdateInput
-        info={mobile.networkBrands}
+        info={mobile?.networkBrands}
         fieldName="networkBrands"
         title="Network"
-        id={mobile._id}
+        id={mobile?._id}
       />
       <UpdateInput
-        info={mobile.simType}
+        info={mobile?.simType}
         fieldName="simType"
         title="SIM Type"
-        id={mobile._id}
+        id={mobile?._id}
       />
       <UpdateInput
-        info={mobile.dimension}
+        info={mobile?.dimension}
         fieldName="dimension"
         title="Dimension"
-        id={mobile._id}
+        id={mobile?._id}
       />
       <UpdateInput
-        info={mobile.weight}
+        info={mobile?.weight}
         fieldName="weight"
         title="Weight"
-        id={mobile._id}
+        id={mobile?._id}
       />
       <UpdateInput
-        info={mobile.build}
+        info={mobile?.build}
         fieldName="build"
         title="Build"
-        id={mobile._id}
+        id={mobile?._id}
       />
       <UpdateInput
-        info={mobile.screenSize}
+        info={mobile?.screenSize}
         fieldName="screenSize"
         title="Screen Size"
-        id={mobile._id}
+        id={mobile?._id}
       />
       <UpdateInput
-        info={mobile.screenType}
+        info={mobile?.screenType}
         fieldName="screenType"
         title="Screen Type "
-        id={mobile._id}
+        id={mobile?._id}
       />
       <UpdateInput
-        info={mobile.resolution}
+        info={mobile?.resolution}
         fieldName="resolution"
         title="Resolution"
-        id={mobile._id}
+        id={mobile?._id}
       />
       <UpdateInput
-        info={mobile.protection}
+        info={mobile?.protection}
         fieldName="protection"
         title="Protection"
-        id={mobile._id}
+        id={mobile?._id}
       />
 
       <UpdateArrayInput
-        info={mobile.mainCamera}
+        info={mobile?.mainCamera}
         fieldName="mainCamera"
         title="Main Camera"
-        id={mobile._id}
+        id={mobile?._id}
       />
       <UpdateArrayInput
-        info={mobile.fontCamera}
+        info={mobile?.fontCamera}
         fieldName="fontCamera"
         title="Front Camera"
-        id={mobile._id}
+        id={mobile?._id}
       />
       <UpdateInput
-        info={mobile.mainFeatures}
+        info={mobile?.mainFeatures}
         fieldName="mainFeatures"
         title="Main Features"
-        id={mobile._id}
+        id={mobile?._id}
       />
       <UpdateInput
-        info={mobile.frontFeatures}
+        info={mobile?.frontFeatures}
         fieldName="frontFeatures"
         title="Front Features"
-        id={mobile._id}
+        id={mobile?._id}
       />
       <div className="flex gap-2 ">
         <UpdateInput
-          info={mobile.romOption}
+          info={mobile?.romOption}
           fieldName="romOption"
           title="ROM Opt."
-          id={mobile._id}
+          id={mobile?._id}
         />
         <UpdateInput
-          info={mobile.ramOption}
+          info={mobile?.ramOption}
           fieldName="ramOption"
           title="RAM Opt."
-          id={mobile._id}
+          id={mobile?._id}
         />
       </div>
       <UpdateInput
-        info={mobile.sdCard}
+        info={mobile?.sdCard}
         fieldName="sdCard"
         title="SD Card."
-        id={mobile._id}
+        id={mobile?._id}
       />
-      <UpdateInput info={mobile.os} fieldName="os" title="OS" id={mobile._id} />
+      <UpdateInput
+        info={mobile?.os}
+        fieldName="os"
+        title="OS"
+        id={mobile?._id}
+      />
 
       <UpdateInput
-        info={mobile.fingerprint}
+        info={mobile?.fingerprint}
         fieldName="fingerprint"
         title="Fingerprint"
-        id={mobile._id}
+        id={mobile?._id}
       />
       <UpdateInput
-        info={mobile.processor}
+        info={mobile?.processor}
         fieldName="processor"
         title="Processor"
-        id={mobile._id}
+        id={mobile?._id}
       />
       <UpdateInput
-        info={mobile.cpu}
+        info={mobile?.cpu}
         fieldName="cpu"
         title="CPU"
-        id={mobile._id}
+        id={mobile?._id}
       />
       <UpdateInput
-        info={mobile.gpu}
+        info={mobile?.gpu}
         fieldName="gpu"
         title="GPU"
-        id={mobile._id}
+        id={mobile?._id}
       />
       <UpdateInput
-        info={mobile.port}
+        info={mobile?.port}
         fieldName="port"
         title="Port"
-        id={mobile._id}
+        id={mobile?._id}
       />
       <UpdateInput
-        info={mobile.sound}
+        info={mobile?.sound}
         fieldName="sound"
         title="Sound"
-        id={mobile._id}
+        id={mobile?._id}
       />
       <UpdateInput
-        info={mobile.audioJack}
+        info={mobile?.audioJack}
         fieldName="audioJack"
         title="Audio Jack"
-        id={mobile._id}
+        id={mobile?._id}
       />
       <UpdateInput
-        info={mobile.battery}
+        info={mobile?.battery}
         fieldName="battery"
         title="Battery"
-        id={mobile._id}
+        id={mobile?._id}
       />
       <UpdateArrayInput
-        info={mobile.charging}
+        info={mobile?.charging}
         fieldName="charging"
         title="Charging"
-        id={mobile._id}
+        id={mobile?._id}
       />
 
       <UpdateInput
-        info={mobile.color}
+        info={mobile?.color}
         fieldName="color"
         title="Color"
-        id={mobile._id}
+        id={mobile?._id}
       />
       <div className="flex gap-2">
         <UpdateInput
-          info={mobile.wifi}
+          info={mobile?.wifi}
           fieldName="wifi"
           title="Wifi"
-          id={mobile._id}
+          id={mobile?._id}
         />
         <UpdateInput
-          info={mobile.bluetooth}
+          info={mobile?.bluetooth}
           fieldName="bluetooth"
           title="Bluetooth"
-          id={mobile._id}
+          id={mobile?._id}
         />
       </div>
 
       <div className="flex gap-2">
         <UpdateInput
-          info={mobile.gps}
+          info={mobile?.gps}
           fieldName="gps"
           title="GPS"
-          id={mobile._id}
+          id={mobile?._id}
         />
         <UpdateInput
-          info={mobile.otg}
+          info={mobile?.otg}
           fieldName="otg"
           title="OTG"
-          id={mobile._id}
+          id={mobile?._id}
         />
       </div>
       <div className="flex gap-2">
         <UpdateInput
-          info={mobile.fm}
+          info={mobile?.fm}
           fieldName="fm"
           title="FM"
-          id={mobile._id}
+          id={mobile?._id}
         />
         <UpdateInput
-          info={mobile.nfc}
+          info={mobile?.nfc}
           fieldName="nfc"
           title="NFC"
-          id={mobile._id}
+          id={mobile?._id}
         />
       </div>
       <UpdateInput
-        info={mobile.sensor}
+        info={mobile?.sensor}
         fieldName="sensor"
         title="Sensor"
-        id={mobile._id}
+        id={mobile?._id}
       />
 
       <UpdateArrayInput
-        info={mobile.others}
+        info={mobile?.others}
         fieldName="others"
         title="Others"
-        id={mobile._id}
+        id={mobile?._id}
       />
       <UpdateArrayInput
-        info={mobile.inTheBox}
+        info={mobile?.inTheBox}
         fieldName="inTheBox"
         title="In The Box"
-        id={mobile._id}
+        id={mobile?._id}
       />
     </section>
   );

@@ -1,21 +1,21 @@
 import { configureStore } from "@reduxjs/toolkit";
-import userReducer from "./slices/userSlice";
-import { mobileApiSlice } from "./api/mobileApiSlice";
+import userReducer from "./slices/authSlice";
+import { adminApiSlice } from "./api/adminApiSlice";
 import { userApiSlice } from "./api/userApiSlice";
 import mobileReducer from "./slices/mobileSlice";
 import mobileUpdateReducer from "./slices/mobileUpdateSlice";
 
 export const store = configureStore({
   reducer: {
-    user: userReducer,
+    auth: userReducer,
     mobileInfo: mobileReducer,
     mobileUpdate: mobileUpdateReducer,
-    [mobileApiSlice.reducerPath]: mobileApiSlice.reducer,
+    [adminApiSlice.reducerPath]: adminApiSlice.reducer,
     [userApiSlice.reducerPath]: userApiSlice.reducer,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware().concat(
-      mobileApiSlice.middleware,
+      adminApiSlice.middleware,
       userApiSlice.middleware
     ),
 });

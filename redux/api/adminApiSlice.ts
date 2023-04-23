@@ -1,15 +1,14 @@
+import { UpdateVariantPrice } from "@/types/api-body/update-variant-price";
+import { Mobile } from "@/types/mobile";
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
-import { UpdateVariantPrice } from "../../type/api-body/update-variant-price";
-import { Mobile } from "../../type/mobile";
 
-export const mobileApiSlice = createApi({
-  reducerPath: "mobileApi",
+export const adminApiSlice = createApi({
+  reducerPath: "adminApi",
   baseQuery: fetchBaseQuery({
-    baseUrl: `${process.env.REACT_APP_API_BASE_URL}/mobiles`,
-    prepareHeaders: (headers) => {
-      const token = window.localStorage.getItem(
-        `${process.env.REACT_APP_TOKEN_NAME}`
-      );
+    baseUrl: `${process.env.API_URL}`,
+    prepareHeaders: (headers, { getState }) => {
+      const accessToke: any = getState();
+      const token = accessToke.auth.access_token;
       if (token) {
         headers.set("authorization", `Bearer ${token}`);
       }
@@ -18,18 +17,19 @@ export const mobileApiSlice = createApi({
   }),
   endpoints: ({ mutation, query }) => ({
     getAllMobileList: query({
-      query: () => "list",
+      query: () => "/mobiles",
+
       transformResponse: (response: any) => response.data,
     }),
-    getAllMobileById: query({
-      query: (id) => id,
+    getMobileById: query({
+      query: (id) => `mobiles/${id}`,
       transformResponse: (response: any) => response.data,
     }),
 
     updateMobilePrice: mutation({
       query: (data: UpdateVariantPrice) => ({
         method: "PUT",
-        url: "update-price",
+        url: "mobiles/update-price",
         body: data,
       }),
     }),
@@ -37,21 +37,21 @@ export const mobileApiSlice = createApi({
     updateMobileContent: mutation({
       query: (data: any) => ({
         method: "PUT",
-        url: "update-content",
+        url: "mobiles/update-content",
         body: data,
       }),
     }),
     addNewMobile: mutation({
-      query: (data: Mobile) => ({
+      query: (data: any) => ({
         method: "POST",
-        url: "new-mobile",
+        url: "mobiles/new-mobile",
         body: data,
       }),
     }),
     deleteMobile: mutation({
       query: (id: string) => ({
         method: "DELETE",
-        url: `${id}`,
+        url: `mobiles/${id}`,
       }),
     }),
   }),
@@ -59,9 +59,9 @@ export const mobileApiSlice = createApi({
 
 export const {
   useGetAllMobileListQuery,
-  useGetAllMobileByIdQuery,
+  useGetMobileByIdQuery,
   useUpdateMobilePriceMutation,
   useUpdateMobileContentMutation,
   useAddNewMobileMutation,
   useDeleteMobileMutation,
-} = mobileApiSlice;
+} = adminApiSlice;

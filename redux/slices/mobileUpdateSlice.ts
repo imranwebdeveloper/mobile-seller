@@ -1,9 +1,10 @@
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
-import { mobileApiSlice } from "../api/mobileApiSlice";
-import { Variant } from "../../type/Variant";
+import { adminApiSlice } from "../api/adminApiSlice";
+import { Variant } from "@/types/Variant";
+import { Mobile } from "@/types/mobile";
 
 interface ModalVariant {
-  mobile: any;
+  mobile: Mobile | null;
   variants: Variant[];
 }
 
@@ -33,14 +34,14 @@ const mobileUpdateSlice = createSlice({
   },
   extraReducers(builder) {
     builder.addMatcher(
-      mobileApiSlice.endpoints.getAllMobileById.matchFulfilled,
+      adminApiSlice.endpoints.getMobileById.matchFulfilled,
       (state, { payload }) => {
         state.mobile = payload;
         state.variants = payload.variant;
       }
     );
     builder.addMatcher(
-      mobileApiSlice.endpoints.updateMobileContent.matchFulfilled,
+      adminApiSlice.endpoints.updateMobileContent.matchFulfilled,
       (state, { payload }) => {
         state.mobile = payload.data;
       }

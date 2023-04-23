@@ -1,5 +1,7 @@
+"use client";
+
+import { handleInput } from "@/redux/slices/mobileSlice";
 import { useDispatch } from "react-redux";
-import { handleInput } from "../../../redux/slices/mobileSlice";
 
 interface Props {
   identity: string;
@@ -19,7 +21,7 @@ const Select: React.FC<Props> = ({ identity, title, options }) => {
         className="w-full rounded-md border p-3 font-bold text-inherit outline-none"
         onChange={inputHandler}
       >
-        <option >Select {title}</option>
+        <option>Select {title}</option>
         {options.map((option: string, i: number) => {
           return (
             <option key={i} value={option}>

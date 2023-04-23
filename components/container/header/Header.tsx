@@ -11,7 +11,6 @@ const Header = () => {
         <div>
           <h3>Logo</h3>
           <button onClick={() => signIn()}>Login</button>
-          <button onClick={() => signOut()}>Logout</button>
         </div>
         <div>
           <p>Navigation</p>

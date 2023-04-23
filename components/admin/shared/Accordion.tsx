@@ -1,3 +1,5 @@
+"use client";
+
 import React, { useState } from "react";
 import { FaPlusCircle, FaMinusCircle } from "react-icons/fa";
 

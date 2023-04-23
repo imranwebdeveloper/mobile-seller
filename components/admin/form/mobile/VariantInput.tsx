@@ -1,6 +1,8 @@
+"use client";
+
+import { addInput, removeInput } from "@/redux/slices/mobileSlice";
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-import { addInput, removeInput } from "../../../redux/slices/mobileSlice";
 
 const VariantInput: React.FC<{ name: string }> = ({ name }) => {
   const [rom, setRom] = useState("");

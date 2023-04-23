@@ -1,5 +1,7 @@
+"use client";
+
+import { handleInput } from "@/redux/slices/mobileSlice";
 import { useDispatch } from "react-redux";
-import { handleInput } from "../../../redux/slices/mobileSlice";
 
 interface InputProps {
   label: string;

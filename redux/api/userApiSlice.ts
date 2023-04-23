@@ -1,6 +1,4 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
-import { UpdateVariantPrice } from "../../type/api-body/update-variant-price";
-import { Mobile } from "../../type/mobile";
 
 export const userApiSlice = createApi({
   reducerPath: "userApi",

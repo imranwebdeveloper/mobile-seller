@@ -1,12 +1,13 @@
-import { Variant } from "../../../type/Variant";
-import { updateOfficialPrice } from "../../../redux/slices/mobileUpdateSlice";
+"use client";
+
 import { useDispatch } from "react-redux";
-import { RootState } from "../../../redux/store";
 import { useSelector } from "react-redux";
-import { useUpdateMobilePriceMutation } from "../../../redux/api/mobileApiSlice";
 import Loading from "../../shared/Loading";
 import { toast } from "react-hot-toast";
-import Error from "../../shared/Error";
+import { useUpdateMobilePriceMutation } from "@/redux/api/adminApiSlice";
+import { RootState } from "@/redux/store";
+import { updateOfficialPrice } from "@/redux/slices/mobileUpdateSlice";
+import { Variant } from "@/types/Variant";
 
 const PriceUpdateForm: React.FC = () => {
   const dispatch = useDispatch();
@@ -25,12 +26,9 @@ const PriceUpdateForm: React.FC = () => {
   };
 
   const submitHandler = () => {
-    updateMobilePrice({ id: mobile._id, variants });
+    updateMobilePrice({ id: mobile?._id, variants });
   };
 
-  if (isError) {
-    return <Error error={error} />;
-  }
   if (isSuccess) {
     toast.success("Prices updated");
   }
