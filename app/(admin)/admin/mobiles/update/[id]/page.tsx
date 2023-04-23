@@ -7,7 +7,6 @@ import { RootState } from "@/redux/store";
 import { useGetMobileByIdQuery } from "@/redux/api/adminApiSlice";
 import PriceUpdateForm from "@/components/admin/form/mobile/PriceUpdateForm";
 import ContentUpdateFrom from "@/components/admin/form/mobile/ContentUpdateFrom";
-// import { useRouter } from "next/router";
 import { useParams } from "next/navigation";
 
 const UpdatePrice = () => {

@@ -13,7 +13,7 @@ const BrandModelList = async ({ params }: { params: { brand: string } }) => {
         </div>
         <Suspense fallback={<LoadingPage />}>
           {/* @ts-expect-error Server Component */}
-          <NewMobilesContainer path={`list?brand=${params.brand}`} />
+          <NewMobilesContainer path={`mobiles/brand/${params.brand}`} />
         </Suspense>
       </section>
     </div>

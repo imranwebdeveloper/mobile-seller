@@ -10,8 +10,10 @@ import { MobileMetaData } from "@/lib/MobileMetaData";
 
 const getData = async (id: string) => {
   const res = await fetch(
-    `${process.env.API_URL}/mobiles/brand/${id}` as string,
-    { cache: "no-cache" }
+    `${process.env.API_URL}/mobiles/model/${id}` as string,
+    {
+      cache: "no-cache",
+    }
   );
   return res.json();
 };
