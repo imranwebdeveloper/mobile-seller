@@ -22,16 +22,13 @@ const SubHeader = () => {
 
   return (
     <ul
-      className="flex justify-around whitespace-nowrap divide-x rounded bg-primary-bg-light dark:bg-secondary-bg-dark  overflow-x-scroll scrollbar-hide "
+      className="flex justify-around whitespace-nowrap divide-x rounded bg-primary-bg-light  overflow-x-scroll scrollbar-hide "
       role="navigation"
     >
       {brands.map((item: string, index: number) => {
         return (
-          <li
-            key={index}
-            className="list-none font-bold px-2 py-1 text-link-text-light dark:text-link-text-dark  "
-          >
-            <Link href={`/${item.toLowerCase()}`} className="text-center">
+          <li key={index} className="list-none font-semibold px-2 py-1 ">
+            <Link href={`mobile/${item.toLowerCase()}`} className="text-center">
               {item}
             </Link>
           </li>

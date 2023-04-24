@@ -5,7 +5,9 @@ import React from "react";
 const Footer = () => {
   return (
     <footer className="root footer  ">
-      <div className="layout container">Footer</div>
+      <section className="layout container">
+        <p className="text-center ">© 2016-2023 Gsmarena.com.bd</p>
+      </section>
     </footer>
   );
 };

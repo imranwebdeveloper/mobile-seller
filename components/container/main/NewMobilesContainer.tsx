@@ -20,7 +20,7 @@ const NewMobilesContainer = async ({ path }: { path: string }) => {
         return (
           <Link
             key={item._id}
-            href={`${item.brandName.toLowerCase()}/${item.model_id}`}
+            href={`mobile/${item.brandName.toLowerCase()}/${item.model_id}`}
           >
             <article className="transition cursor-pointer hover:scale-105  flex flex-col gap-1 p-4">
               <header>
