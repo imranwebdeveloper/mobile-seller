@@ -7,6 +7,7 @@ import { Mobile } from "@/types/mobile";
 import Contents from "@/components/common/Contents";
 import { Metadata } from "next";
 import { MobileMetaData } from "@/lib/MobileMetaData";
+import Disclaimer from "@/components/common/Disclaimer";
 
 const getData = async (id: string) => {
   const res = await fetch(
@@ -156,6 +157,7 @@ const ModelDetails = async ({ params }: { params: { id: string } }) => {
           </article>
         </section>
       </section>
+      <Disclaimer />
     </main>
   );
 };

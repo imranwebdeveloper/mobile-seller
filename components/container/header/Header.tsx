@@ -10,7 +10,7 @@ const Header = () => {
       <div className="layout gap-2 df_jb_ic container ">
         <div>
           <Link href="/">
-            <h1>Logo</h1>
+            <h1>{process.env.LOGO}</h1>
           </Link>
         </div>
         <div></div>
