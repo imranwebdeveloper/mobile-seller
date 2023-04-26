@@ -91,7 +91,7 @@ const AddNew = () => {
             <Select
               identity="category"
               title="Mobile Type"
-              options={["Smartphone ", "Feature", "Tab", "Pad"]}
+              options={["Smartphones", "Tablets", "Feature Phones"]}
             />
             <Input label="Model" name="model" />
             <Input label="Date" type="date" name="releasedDate" />
