@@ -7,7 +7,7 @@ const Footer = () => {
   return (
     <footer className="root footer  ">
       <section className="layout container py-4">
-        <ul className="flex justify-center items-center flex-wrap   py-1">
+        <ul className="flex justify-center items-center flex-wrap ">
           <li className="flex justify-center items-center px-2">
             <Link className="text-link-text-light" href="/">
               Home
@@ -18,11 +18,11 @@ const Footer = () => {
               About
             </Link>
           </li>
-          <li className="flex justify-center items-center px-2">
+          {/* <li className="flex justify-center items-center px-2">
             <Link className="text-link-text-light" href="/contact">
               Contact
             </Link>
-          </li>
+          </li> */}
           <li className="flex justify-center items-center px-2">
             <Link className="text-link-text-light" href="/privacy">
               Privacy
@@ -34,12 +34,12 @@ const Footer = () => {
             </Link>
           </li>
         </ul>
-        <p className="text-center text-sm justify-center text-slate-500  flex gap-1 mt-2">
+        <p className="text-center text-sm justify-center flex-wrap text-slate-500  flex gap-1 ">
           <span>{`© Copyright 2023-${new Date().getFullYear()} `}</span>
           <Link href="/" className="hover:text-link-text-light">
             {process.env.LOGO}
           </Link>
-          <span>| All Rights Reserved</span>
+          {/* <span>| All Rights Reserved</span> */}
         </p>
       </section>
     </footer>
