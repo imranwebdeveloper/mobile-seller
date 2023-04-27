@@ -12,11 +12,11 @@ const getData = async (path: string) => {
 const NewMobilesContainer = async ({ path }: { path: string }) => {
   const { data } = await getData(path);
   return (
-    <section className="card-container rounded  bg-primary-bg-light dark:bg-primary-bg-dark p-4 border dark:border-primary-bg-dark ">
-      {data.length === 0 && (
+    <section className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 rounded  bg-primary-bg-light dark:bg-primary-bg-dark p-4 border dark:border-primary-bg-dark ">
+      {data.mobiles.length === 0 && (
         <h3 className="font-bold text-center ">No data found</h3>
       )}
-      {data.map((item: any) => {
+      {data.mobiles.map((item: any) => {
         return (
           <Link
             key={item._id}
@@ -30,7 +30,7 @@ const NewMobilesContainer = async ({ path }: { path: string }) => {
                   height={120}
                   priority
                   alt={`${item.brandName} ${item.model} mobile`}
-                  className="w-24 h-28 mx-auto"
+                  className="w-24 h-28 md:w-28 md:h-32 mx-auto lg:w-32 lg:h-36 "
                 />
               </header>
 

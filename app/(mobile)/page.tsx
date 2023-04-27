@@ -15,15 +15,20 @@ const Home = async () => {
         <PhoneCategory />
         <Suspense fallback={<LoadingPage />}>
           <div className="my-2 mt-4">
-            <h1>Top Mobiles</h1>
+            <h1 className="text-2xl">
+              Latest Mobile Phones Price in Bangladesh
+            </h1>
           </div>
           {/* @ts-expect-error Server Component */}
-          <NewMobilesContainer path="mobiles" />
-          <div className="mb-2 mt-4">
-            <h1>New Mobiles</h1>
+          <NewMobilesContainer path="mobiles/latest" />
+          <div className="flex justify-center mt-2">
+            <Link
+              href={{ pathname: "mobile/latest", query: { page: "2" } }}
+              className="btn-primary"
+            >
+              More Mobiles
+            </Link>
           </div>
-          {/* @ts-expect-error Server Component */}
-          <NewMobilesContainer path="mobiles" />
         </Suspense>
       </section>
     </section>
