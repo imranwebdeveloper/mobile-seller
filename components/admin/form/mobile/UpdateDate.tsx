@@ -1,7 +1,7 @@
 import React from "react";
 import { useState } from "react";
 import { FiEdit, FiSave } from "react-icons/fi";
-import { useUpdateMobileContentMutation } from "../../../redux/api/mobileApiSlice";
+import { useUpdateMobileContentMutation } from "@/redux/api/adminApiSlice";
 import LoadingSmall from "../../shared/LoadingSmall";
 
 interface Props {

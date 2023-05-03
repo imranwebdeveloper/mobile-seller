@@ -4,10 +4,10 @@ import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
 import Loading from "../../shared/Loading";
 import { toast } from "react-hot-toast";
-import { useUpdateMobilePriceMutation } from "@/redux/api/adminApiSlice";
 import { RootState } from "@/redux/store";
-import { updateOfficialPrice } from "@/redux/slices/mobileUpdateSlice";
 import { Variant } from "@/types/Variant";
+import { useUpdateMobilePriceMutation } from "@/redux/api/adminApiSlice";
+import { updateOfficialPrice } from "@/redux/slices/mobileUpdateSlice";
 
 const PriceUpdateForm: React.FC = () => {
   const dispatch = useDispatch();
