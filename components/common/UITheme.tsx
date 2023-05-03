@@ -1,15 +1,15 @@
 "use client";
 
 import React, { useState } from "react";
-import { useTheme } from "next-themes";
+// import { useTheme } from "next-themes";
 import { MdOutlineDarkMode, MdOutlineLightMode } from "react-icons/md";
 
 const UITheme = () => {
-  const { theme, setTheme } = useTheme();
+  // const { theme, setTheme } = useTheme();
 
   return (
     <div className="text-2xl df_jc_ic">
-      {theme === "light" ? (
+      {/* {theme === "light" ? (
         <button onClick={() => setTheme("dark")}>
           <MdOutlineLightMode />
         </button>
@@ -17,7 +17,7 @@ const UITheme = () => {
         <button onClick={() => setTheme("light")}>
           <MdOutlineDarkMode />
         </button>
-      )}
+      )} */}
     </div>
   );
 };
