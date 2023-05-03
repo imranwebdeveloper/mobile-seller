@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { toast } from "react-hot-toast";
 
 const Toaster = () => {
@@ -11,10 +12,13 @@ const Toaster = () => {
         <div className="w-0 flex-1 p-4">
           <div className="flex items-start">
             <div className="flex-shrink-0 pt-0.5">
-              <img
+              <Image
                 className="h-10 w-10 rounded-full"
                 src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixqx=6GHAjsWpt9&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2.2&w=160&h=160&q=80"
                 alt=""
+                width={100}
+                height={120}
+                priority
               />
             </div>
             <div className="ml-3 flex-1">

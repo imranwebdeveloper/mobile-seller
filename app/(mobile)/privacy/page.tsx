@@ -57,9 +57,9 @@ const Privacy = () => {
             </p>
             <p className="mt-2">
               In addition, we may use Google AdSense to display ads on our
-              website. Google uses cookies to serve ads based on a user's prior
-              visits to our website or other websites. You may opt out of
-              personalized advertising by visiting Google's Ads Settings.
+              website. Google uses cookies to serve ads based on a user&apos;s
+              prior visits to our website or other websites. You may opt out of
+              personalized advertising by visiting Google&apos;s Ads Settings.
             </p>
           </div>
           <div>

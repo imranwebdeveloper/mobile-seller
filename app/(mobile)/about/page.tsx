@@ -45,8 +45,8 @@ const About = () => {
           <p>
             Thank you for visiting <strong>{process.env.LOGO}</strong> We hope
             you find our website informative, useful, and engaging. If you have
-            any questions, comments, or suggestions, please don't hesitate to
-            contact us. We look forward to hearing from you and hope you will
+            any questions, comments, or suggestions, please don&apos;t hesitate
+            to contact us. We look forward to hearing from you and hope you will
             continue to visit us for all your mobile technology-related needs.
           </p>
         </main>
