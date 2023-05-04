@@ -36,7 +36,6 @@ const ModelDetails = async ({ params }: { params: { id: string } }) => {
   return (
     <main className="main">
       <section className="layout container ">
-        <SubHeader />
         <section className="py-4">
           <article className="mx-auto  grid grid-cols-3 gap-2 max-w-4xl text-sm  ">
             <div className="border bg-primary-bg-light border-b ght rounded flex flex-col gap-2 p-4">

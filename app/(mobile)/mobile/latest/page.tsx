@@ -32,9 +32,6 @@ const LatestMobiles = async ({
   return (
     <section className="main">
       <section className="layout container">
-        <SubHeader />
-        <PriceRange />
-        <PhoneCategory />
         <div>
           <div className="my-2 mt-4">
             <h1 className="text-2xl">

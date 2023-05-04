@@ -1,8 +1,5 @@
 import MobileCardContainer from "@/components/common/MobileCardContainer";
 import Pagination from "@/components/common/Pagination";
-import PhoneCategory from "@/components/common/PhoneCategory";
-import PriceRange from "@/components/common/PriceRange";
-import SubHeader from "@/components/container/header/SubHeader";
 import React from "react";
 
 const getData = async (slug: string, pageNumber?: string) => {
@@ -34,9 +31,6 @@ const CategoryPhones = async ({
   return (
     <section className="main">
       <section className="layout container">
-        <SubHeader />
-        <PriceRange />
-        <PhoneCategory />
         <div>
           <div className="my-2 mt-4">
             <h1 className="text-2xl">Latest {category} Price in Bangladesh</h1>

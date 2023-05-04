@@ -20,9 +20,6 @@ const Home = async () => {
   return (
     <section className="main">
       <section className="layout container">
-        <SubHeader />
-        <PriceRange />
-        <PhoneCategory />
         <Suspense fallback={<LoadingPage />}>
           <div className="my-2 mt-4">
             <h1 className="text-2xl">

@@ -5,7 +5,7 @@ import React from "react";
 const PriceRange = () => {
   return (
     <div className="md:flex items-center md:gap-2 gap-1 mt-2">
-      <p className="font-bold">Price Range :</p>
+      <p className="font-bold hidden md:flex">Price Range :</p>
       <ul className="flex justify-start whitespace-nowrap gap-1  text-sm md:text-base divide-x rounded  overflow-x-scroll scrollbar-hide ">
         <li className="px-2 md:px-4 py-1 border rounded-full bg-primary-bg-light ">
           <Link href="/price-range/1-5000">Tk 1 - 5000</Link>
