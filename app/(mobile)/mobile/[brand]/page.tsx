@@ -1,6 +1,5 @@
 import MobileCardContainer from "@/components/common/MobileCardContainer";
 import Pagination from "@/components/common/Pagination";
-import SubHeader from "@/components/container/header/SubHeader";
 
 const getData = async (slug: string, pageNumber?: string) => {
   let url: string;

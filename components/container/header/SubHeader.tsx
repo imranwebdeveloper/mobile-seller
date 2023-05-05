@@ -1,10 +1,11 @@
 "use client";
 import Link from "next/link";
-import { useParams } from "next/navigation";
 import React from "react";
+interface Props {
+  slug: string;
+}
 
-const SubHeader = () => {
-  const { brand } = useParams();
+const SubHeader: React.FC<Props> = ({ slug }) => {
   const brands = [
     "Apple",
     "Samsung",
@@ -23,32 +24,30 @@ const SubHeader = () => {
   ];
 
   return (
-    <div>
-      <ul
-        className="flex md:justify-around whitespace-nowrap text-sm md:text-base divide-x rounded bg-primary-bg-light  overflow-x-scroll scrollbar-hide "
-        role="navigation"
-      >
-        {brands.map((item: string, index: number) => {
-          return (
-            <li
-              key={index}
-              className={`list-none  px-2 py-1 ${
-                brand === item.toLowerCase()
-                  ? "bg-primary-text-light text-secondary-bg-light"
-                  : ""
-              }`}
+    <ul
+      className="flex md:justify-around whitespace-nowrap divide-x rounded bg-primary-bg-light  overflow-x-scroll scrollbar-hide "
+      role="navigation"
+    >
+      {brands.map((item: string, index: number) => {
+        return (
+          <li
+            key={index}
+            className={`list-none py-1 px-2  md:px-3 ${
+              slug === item.toLowerCase()
+                ? "bg-primary-text-light text-secondary-bg-light"
+                : ""
+            }`}
+          >
+            <Link
+              href={`mobile/${item.toLowerCase()}`}
+              className="text-center "
             >
-              <Link
-                href={`mobile/${item.toLowerCase()}`}
-                className="text-center"
-              >
-                {item}
-              </Link>
-            </li>
-          );
-        })}
-      </ul>
-    </div>
+              {item}
+            </Link>
+          </li>
+        );
+      })}
+    </ul>
   );
 };
 
