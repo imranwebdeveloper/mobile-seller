@@ -18,10 +18,10 @@ const Content: React.FC<Props> = ({ content, title, none }) => {
             none && "border-b"
           }`}
         >
-          <h4 className="min-w-[125px] font-bold  text-sm md:text-base bg-slate-50 p-1   md:border-r ">
+          <h4 className="min-w-[125px] font-bold  text-sm md:text-base bg-slate-50 p-1 md:py-2   md:border-r ">
             {title}
           </h4>
-          <ul className="flex-1 p-1  ">
+          <ul className="flex-1 p-1 md:py-2 ">
             {content && (
               <li className="flex gap-3 ">
                 <p>

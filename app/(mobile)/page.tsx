@@ -1,9 +1,7 @@
 import Link from "next/link";
 import MobileCardContainer from "@/components/common/MobileCardContainer";
 const getData = async () => {
-  const res = await fetch(`${process.env.API_URL}/mobiles/latest` as string, {
-    cache: "no-cache",
-  });
+  const res = await fetch(`${process.env.API_URL}/mobiles/latest` as string);
   return res.json();
 };
 

@@ -10,7 +10,6 @@ import { Dialog, Transition } from "@headlessui/react";
 import { Fragment, useState } from "react";
 
 const Header = () => {
-  const [toggle, setToggle] = useState(false);
   let [isOpen, setIsOpen] = useState(false);
 
   function closeModal() {
