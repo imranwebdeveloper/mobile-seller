@@ -11,10 +11,7 @@ import MobilePriceTable from "@/components/common/MobilePriceTable";
 
 const getData = async (id: string) => {
   const res = await fetch(
-    `${process.env.API_URL}/mobiles/model/${id}` as string,
-    {
-      cache: "no-cache",
-    }
+    `${process.env.API_URL}/mobiles/model/${id}` as string
   );
   return res.json();
 };

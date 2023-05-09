@@ -12,10 +12,7 @@ import MobileCardContainer from "@/components/common/MobileCardContainer";
 
 const getData = async (pageNumber: string) => {
   const res = await fetch(
-    `${process.env.API_URL}/mobiles/latest?page=${pageNumber}` as string,
-    {
-      cache: "no-cache",
-    }
+    `${process.env.API_URL}/mobiles/latest?page=${pageNumber}` as string
   );
   return res.json();
 };

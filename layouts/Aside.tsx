@@ -6,13 +6,21 @@ import { HiOutlineDevicePhoneMobile } from "react-icons/hi2";
 import AsideLink from "@/components/admin/common/AsideLink";
 import AsideCollapse from "@/components/admin/common/AsideCollapse";
 import { signOut } from "next-auth/react";
+import Image from "next/image";
+import logo from "../app/android-chrome-192x192.png";
 
 const Aside = () => {
   return (
     <div className="flex flex-col bg-white  p-4">
       <div className="mb-4">
+        {/* <Image
+          src={logo}
+          alt={process.env.LOGO as string}
+          width={100}
+          height={60}
+          priority
+        /> */}
         <h3 className="logo">MobileSell</h3>
-        {/* <img src="logo.png" alt="" className="w-full h-full px-2 " /> */}
       </div>
       <h2 className="mb-2 text-[#868eae]">MAIN MENU</h2>
       <nav className="flex  flex-1 flex-col ">

@@ -7,7 +7,7 @@ const getData = async (slug: string, pageNumber?: string) => {
     ? (`${process.env.API_URL}/mobiles/brand/${slug}?page=${pageNumber}` as string)
     : (`${process.env.API_URL}/mobiles/brand/${slug}` as string);
 
-  const res = await fetch(url, { cache: "no-cache" });
+  const res = await fetch(url);
   return res.json();
 };
 
