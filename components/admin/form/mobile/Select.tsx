@@ -18,7 +18,7 @@ const Select: React.FC<Props> = ({ identity, title, options }) => {
     <div className="flex items-center">
       <label className="w-[130px]">{title}</label>
       <select
-        className="w-full rounded-md border p-3 font-bold text-inherit outline-none"
+        className="w-full rounded-md border p-2 bg-slate-50 font-bold text-inherit outline-none"
         onChange={inputHandler}
       >
         <option>Select {title}</option>

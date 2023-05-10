@@ -17,7 +17,7 @@ const AdminLayout = ({ children }: DashboardLayoutProps) => {
         <AuthProvider>
           <div className="grid h-screen grid-cols-[280px_1fr] ">
             <Aside />
-            <section className="relative h-screen overflow-scroll bg-primary-bg-light px-4 scrollbar-hide ">
+            <section className="relative h-screen overflow-scroll  px-4 scrollbar-hide ">
               <DashboardHeader />
               <section className="mb-4 ">{children}</section>
             </section>

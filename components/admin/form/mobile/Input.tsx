@@ -24,7 +24,7 @@ const Input: React.FC<InputProps> = ({ label, name, type, value }) => {
       <input
         name={name}
         type={type ? type : "text"}
-        className=" w-full rounded-md border p-3 outline-none "
+        className=" w-full rounded-md bg-slate-50 border p-2 outline-none "
         onChange={inputHandler}
         defaultValue={value ? value : ""}
       />

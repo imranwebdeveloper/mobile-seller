@@ -274,6 +274,12 @@
   .btn-primary {
     @apply bg-primary-bg-dark text-primary-bg-light  rounded-md px-6 py-2  shadow-md;
   }
+  .btn-green {
+    @apply bg-link-text-light text-primary-bg-light  rounded-md px-6 py-2  shadow-md;
+  }
+  .btn-danger {
+    @apply bg-origin-600 text-primary-bg-light  rounded-md px-6 py-2  shadow-md;
+  }
 }
 
 @layer utilities {

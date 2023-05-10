@@ -25,7 +25,7 @@ const ArrayInput: React.FC<InputLabelProps> = ({ label, name }) => {
           name={name}
           type={"text"}
           value={value}
-          className=" w-full rounded-md border p-3 outline-none "
+          className=" w-full rounded-md border bg-slate-50 p-2 outline-none "
           onChange={(e) => setValue(e.target.value)}
         />
       </div>

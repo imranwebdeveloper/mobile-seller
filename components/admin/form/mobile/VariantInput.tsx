@@ -13,12 +13,12 @@ const VariantInput: React.FC<{ name: string }> = ({ name }) => {
     <div className="my-2 flex items-center justify-between gap-2">
       <label className="min-w-[90px] text-sm ">Variant</label>
 
-      <div className="flex items-center gap-2">
+      <div className="flex flex-1 items-center gap-2 ">
         <input
           name="rom"
           type="text"
           value={rom}
-          className=" input-md input-bordered input w-full "
+          className=" w-full rounded-md bg-slate-50 border p-2 outline-none "
           placeholder="ROM"
           onChange={(e) => setRom(e.target.value)}
         />
@@ -26,7 +26,7 @@ const VariantInput: React.FC<{ name: string }> = ({ name }) => {
           name="ram"
           value={ram}
           type="text"
-          className="input-md input-bordered input w-full "
+          className="w-full rounded-md bg-slate-50 border p-2 outline-none"
           placeholder="RAM"
           onChange={(e) => setRam(e.target.value)}
         />
