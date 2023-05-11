@@ -16,35 +16,48 @@ import { useSelector } from "react-redux";
 
 const AddNew = () => {
   const [img, setImg] = useState("");
+  const [loading, setLoading] = useState(false);
 
   const newMobile = useSelector((state: RootState) => state.mobileInfo);
   const [addNewMobile] = useAddNewMobileMutation();
   const saveNewMobile = async () => {
     try {
-      const key = process.env.REACT_APP_IMGDB_API_KEY;
-      const formData = new FormData();
-      formData.append("image", img);
-      const res = await fetch(`https://api.imgbb.com/1/upload?key=${key}`, {
-        method: "POST",
-        body: formData,
-      });
-      const { data } = await res.json();
-      const payload = await addNewMobile({
-        ...newMobile,
-        imgUrl: data.url,
-      }).unwrap();
-      if (payload?.message) toast.success("New Mobile added successfully");
+      if (img) {
+        setLoading(true);
+        const formData = new FormData();
+        formData.append("file", img);
+        const res = await fetch(`${process.env.API_URL}/upload/mobile`, {
+          method: "POST",
+          body: formData,
+        });
+        const { data } = await res.json();
+        const rese = await addNewMobile({
+          ...newMobile,
+          imgUrl: data.img_url,
+        }).unwrap();
+        console.log(rese);
+        toast.success("New Mobile added successfully");
+        setLoading(false);
+      } else {
+        toast.error("Mobile image required");
+      }
     } catch (error: any) {
-      toast.error(error.message);
+      console.log(error);
+      setLoading(false);
+      toast.error(error.data?.message?.[0]);
     }
   };
 
   return (
     <section className="mx-auto mb-4 max-w-4xl">
       <div className=" mb-2 flex justify-end gap-4">
-        <button className="btn-primary" onClick={saveNewMobile}>
-          Submit
-        </button>
+        {loading ? (
+          <LoadingSmall />
+        ) : (
+          <button className="btn-primary" onClick={saveNewMobile}>
+            Submit
+          </button>
+        )}
       </div>
       <Accordion heading="General Info">
         <>

@@ -5,8 +5,8 @@ import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 
 const VariantInput: React.FC<{ name: string }> = ({ name }) => {
-  const [rom, setRom] = useState("");
-  const [ram, setRam] = useState("");
+  const [rom, setRom] = useState<number>(0);
+  const [ram, setRam] = useState<number>(0);
   const dispatch = useDispatch();
 
   return (
@@ -16,39 +16,39 @@ const VariantInput: React.FC<{ name: string }> = ({ name }) => {
       <div className="flex flex-1 items-center gap-2 ">
         <input
           name="rom"
-          type="text"
+          type="number"
           value={rom}
           className=" w-full rounded-md bg-slate-50 border p-2 outline-none "
           placeholder="ROM"
-          onChange={(e) => setRom(e.target.value)}
+          onChange={(e) => setRom(parseInt(e.target.value))}
         />
         <input
           name="ram"
           value={ram}
-          type="text"
+          type="number"
           className="w-full rounded-md bg-slate-50 border p-2 outline-none"
           placeholder="RAM"
-          onChange={(e) => setRam(e.target.value)}
+          onChange={(e) => setRam(parseInt(e.target.value))}
         />
       </div>
       <div className="flex items-center justify-between gap-2 text-sm font-bold">
         <button
-          className=" rounded bg-green-600 px-6 py-2 text-white"
+          className=" btn-green "
           onClick={() => {
             dispatch(
               addInput({
                 name,
-                value: { rom, ram, official: "", unofficial: "" },
+                value: { rom, ram, official: 0, unofficial: 0 },
               })
             );
-            setRom("");
-            setRam("");
+            setRom(0);
+            setRam(0);
           }}
         >
           Add
         </button>
         <button
-          className=" rounded bg-red-600 px-6 py-2 text-white "
+          className=" btn-danger "
           onClick={() => dispatch(removeInput(name))}
         >
           Remove

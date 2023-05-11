@@ -1,12 +1,4 @@
-import PhoneCategory from "@/components/common/PhoneCategory";
-import PriceRange from "@/components/common/PriceRange";
-import SubHeader from "@/components/container/header/SubHeader";
 import React from "react";
-import LoadingPage from "../../loading";
-import NewMobilesContainer from "@/components/container/main/NewMobilesContainer";
-import Link from "next/link";
-import { Suspense } from "react";
-import Image from "next/image";
 import Pagination from "@/components/common/Pagination";
 import MobileCardContainer from "@/components/common/MobileCardContainer";
 

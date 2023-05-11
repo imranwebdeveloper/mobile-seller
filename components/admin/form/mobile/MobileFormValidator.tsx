@@ -26,7 +26,7 @@ const MobileFormValidator: React.FC<ValidatorProps> = ({
                 <div>
                   <p
                     className={` text-xl ${
-                      item.content ? "text-green-600" : "text-red-600"
+                      item.content ? "text-green" : "text-waring"
                     } `}
                   >
                     {item.content ? (
@@ -51,7 +51,7 @@ const MobileFormValidator: React.FC<ValidatorProps> = ({
               <div className="col-span-2 flex items-center gap-1" key={i}>
                 <span
                   className={` text-xl ${
-                    item.content ? "text-green-600" : "text-red-600"
+                    item.content ? "text-green" : "text-waring"
                   } `}
                 >
                   {item.content ? <BsCheckCircle /> : <AiOutlineCloseCircle />}
@@ -71,9 +71,7 @@ const MobileFormValidator: React.FC<ValidatorProps> = ({
                 <p className="flex min-w-[120px] items-center gap-1">
                   <span
                     className={` text-xl ${
-                      item.content.length > 0
-                        ? "text-green-600"
-                        : "text-red-600"
+                      item.content.length > 0 ? "text-green" : "text-waring"
                     } `}
                   >
                     {item.content.length > 0 ? (

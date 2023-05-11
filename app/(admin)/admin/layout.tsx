@@ -6,6 +6,7 @@ import AuthProvider from "@/providers/AuthProvider";
 import { store } from "@/redux/store";
 import { SessionProvider } from "next-auth/react";
 import { Provider } from "react-redux";
+import { Toaster } from "react-hot-toast";
 interface DashboardLayoutProps {
   children?: React.ReactNode;
 }
@@ -14,6 +15,7 @@ const AdminLayout = ({ children }: DashboardLayoutProps) => {
   return (
     <SessionProvider>
       <Provider store={store}>
+        <Toaster />
         <AuthProvider>
           <div className="grid h-screen grid-cols-[280px_1fr] ">
             <Aside />

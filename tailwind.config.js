@@ -37,7 +37,8 @@ module.exports = {
         light: "#e2e8f0",
         dark: "#858585",
       },
-
+      green: "#00b755",
+      waring: "#ff2a51",
       slate: {
         50: "#f8fafc",
         100: "#f1f5f9",
