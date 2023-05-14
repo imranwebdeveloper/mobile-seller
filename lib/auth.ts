@@ -5,11 +5,11 @@ export const authOptions: NextAuthOptions = {
   providers: [
     CredentialsProvider({
       name: "credentials",
+
       credentials: {
         email: { label: "email", type: "text", placeholder: "Email" },
         password: { label: "Password", type: "password" },
       },
-
       async authorize(credentials, req) {
         const res = await fetch(`${process.env.API_URL}/users/login`, {
           method: "POST",
@@ -20,7 +20,6 @@ export const authOptions: NextAuthOptions = {
           headers: { "Content-Type": "application/json" },
         });
         const { data } = await res.json();
-
         if (data) {
           return data;
         }
@@ -29,9 +28,6 @@ export const authOptions: NextAuthOptions = {
     }),
   ],
 
-  pages: {
-    signIn: "/login",
-  },
   session: {
     strategy: "jwt",
   },
@@ -41,8 +37,15 @@ export const authOptions: NextAuthOptions = {
       return { ...token, ...user };
     },
     async session({ session, token }) {
-      session.user = token;
+      // session.user = token;
+      // console.log(token);
       return session;
+    },
+    async redirect({ url, baseUrl }) {
+      if (url.startsWith("/")) {
+        return baseUrl;
+      }
+      return `${baseUrl}/admin`;
     },
   },
 };

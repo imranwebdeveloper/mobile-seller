@@ -1,5 +1,5 @@
 "use client";
-import { useSession, signIn, signOut } from "next-auth/react";
+import { signIn } from "next-auth/react";
 
 const Login = () => {
   const loginHandler = async (e: React.ChangeEvent<HTMLFormElement>) => {
@@ -7,20 +7,20 @@ const Login = () => {
     try {
       const email = (e.target.email as HTMLInputElement).value;
       const password = (e.target.password as HTMLInputElement).value;
-      const res = await signIn("credentials", {
+      await signIn("credentials", {
         callbackUrl: "/admin",
         redirect: true,
         email,
         password,
       });
-      console.log(res);
     } catch (error: any) {
       console.log(error.message);
     }
   };
 
   return (
-    <main className="flex min-h-screen items-center justify-center">
+    <main className="flex min-h-screen items-center justify-center flex-col">
+      {/* <h1 className="text-center">Admin Panel</h1> */}
       <form
         className="flex w-full max-w-lg flex-col gap-2 rounded-lg border bg-primary-bg-light p-12 mx-2 "
         onSubmit={loginHandler}
