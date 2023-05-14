@@ -17,6 +17,7 @@ const LatestMobiles = async ({
   const {
     data: { count, mobiles, parPage },
   } = await getData(searchParams.page);
+  const currenPage = parseInt(searchParams.page);
 
   return (
     <section className="main">
@@ -31,7 +32,7 @@ const LatestMobiles = async ({
         </div>
         {mobiles.length > 0 && (
           <Pagination
-            currenPage={parseInt(searchParams.page)}
+            currenPage={currenPage ? currenPage : 1}
             totalProduct={count}
             parPage={parPage}
             path="mobile/latest"

@@ -1,3 +1,10 @@
+export interface Variant {
+  ram: string;
+  rom: string;
+  official: number;
+  unofficial: number;
+}
+
 export interface Mobile {
   _id: string;
   category: string;
@@ -16,7 +23,7 @@ export interface Mobile {
   os: string;
   fingerprint: string;
   sdCard: string;
-  variant: any;
+  variant: Variant[];
   romOption: string;
   ramOption: string;
   processor: string;

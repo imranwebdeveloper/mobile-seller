@@ -8,7 +8,8 @@ export const adminApiSlice = createApi({
     baseUrl: `${process.env.API_URL}`,
     prepareHeaders: (headers, { getState }) => {
       const accessToke: any = getState();
-      const token = accessToke.auth.access_token;
+      const token =
+        "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IkVtcmFuIiwiX2lkIjoiNjQwMmVkMGM2NzEzZDJiNjQwMWIwZmY0IiwiaWF0IjoxNjg0MDUxMjQ4fQ.MtFIjT8YqS8jYPvcvvB3gqH0ovQyRFuPH6qJZycYPpE";
       if (token) {
         headers.set("authorization", `Bearer ${token}`);
       }
@@ -17,7 +18,7 @@ export const adminApiSlice = createApi({
   }),
   endpoints: ({ mutation, query }) => ({
     getAllMobileList: query({
-      query: () => "/mobiles",
+      query: () => "/mobiles/latest",
 
       transformResponse: (response: any) => response.data,
     }),

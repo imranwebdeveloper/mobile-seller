@@ -4,6 +4,8 @@ import { useState } from "react";
 import { FiEdit, FiSave } from "react-icons/fi";
 import LoadingSmall from "../../shared/LoadingSmall";
 import { useUpdateMobileContentMutation } from "@/redux/api/adminApiSlice";
+import { useRouter } from "next/navigation";
+import { toast } from "react-hot-toast";
 
 interface Props {
   id?: string;
@@ -14,6 +16,8 @@ interface Props {
 }
 
 const UpdateInput: React.FC<Props> = ({ info, title, fieldName, id, type }) => {
+  const router = useRouter();
+
   const [toggle, setToggle] = useState<boolean>(false);
   const [data, setData] = useState<object>();
   const [updateMobileContent, { isLoading }] = useUpdateMobileContentMutation();
@@ -23,7 +27,11 @@ const UpdateInput: React.FC<Props> = ({ info, title, fieldName, id, type }) => {
     setData({ [name]: value });
   };
 
-  const submitHandler = () => updateMobileContent({ id, content: data });
+  const submitHandler = async () => {
+    await updateMobileContent({ id, content: data });
+    toast.success("Content updated");
+    router.refresh();
+  };
 
   return (
     <div className="flex w-full items-center gap-2 border-b py-2">
@@ -32,7 +40,7 @@ const UpdateInput: React.FC<Props> = ({ info, title, fieldName, id, type }) => {
         <input
           type={type ? type : "text"}
           name={fieldName}
-          className="w-full rounded-md border bg-slate-50 p-2 outline-none "
+          className="w-full rounded-md border bg-slate-100 p-2 outline-none "
           defaultValue={info}
           onChange={inputHandler}
         />

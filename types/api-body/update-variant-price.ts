@@ -1,6 +1,6 @@
-import { Variant } from "../Variant";
+import { Variant } from "../mobile";
 
 export interface UpdateVariantPrice {
   id?: string;
-  variants: Variant[];
+  variant: Variant[];
 }

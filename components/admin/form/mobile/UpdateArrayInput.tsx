@@ -3,6 +3,8 @@ import React, { useState } from "react";
 import { FiEdit, FiSave } from "react-icons/fi";
 import LoadingSmall from "../../shared/LoadingSmall";
 import { useUpdateMobileContentMutation } from "@/redux/api/adminApiSlice";
+import { useRouter } from "next/navigation";
+import { toast } from "react-hot-toast";
 
 interface Props {
   id?: string;
@@ -19,6 +21,7 @@ const UpdateArrayInput: React.FC<Props> = ({
   title,
   type,
 }) => {
+  const router = useRouter();
   const [toggle, setToggle] = useState<boolean>(false);
   const [data, setData] = useState<object>();
   const [updateMobileContent, { isLoading }] = useUpdateMobileContentMutation();
@@ -30,7 +33,11 @@ const UpdateArrayInput: React.FC<Props> = ({
     setData({ [fieldName]: content });
   };
 
-  const submitHandler = () => updateMobileContent({ id, content: data });
+  const submitHandler = async () => {
+    await updateMobileContent({ id, content: data });
+    toast.success("Content updated");
+    router.refresh();
+  };
 
   return (
     <div className="flex  gap-2 border-b py-2">
@@ -43,7 +50,7 @@ const UpdateArrayInput: React.FC<Props> = ({
                 key={i}
                 type={type ? type : "text"}
                 name={`${fieldName}-${i}`}
-                className="mb-1 w-full rounded-md border bg-slate-50 p-2 outline-none "
+                className="mb-1 w-full rounded-md border bg-slate-100 p-2 outline-none "
                 defaultValue={item}
                 onChange={(e) => inputHandler(e, i)}
               />

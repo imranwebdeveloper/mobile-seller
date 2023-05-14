@@ -1,15 +1,16 @@
 "use client";
 
-import { useSelector } from "react-redux";
-
 import UpdateInput from "./UpdateInput";
 import UpdateArrayInput from "./UpdateArrayInput";
-import { RootState } from "@/redux/store";
+import { Mobile } from "@/types/mobile";
 
-const ContentUpdateFrom = () => {
-  const { mobile } = useSelector((state: RootState) => state.mobileUpdate);
+interface Props {
+  mobile: Mobile;
+}
+
+const ContentUpdateFrom: React.FC<Props> = ({ mobile }) => {
   return (
-    <section className="col-span-3 rounded border bg-white p-8">
+    <section className="col-span-3 rounded border bg-primary-bg-light p-8">
       <UpdateInput
         info={mobile?.brandName}
         fieldName="brandName"
