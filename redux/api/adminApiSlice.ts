@@ -1,15 +1,15 @@
 import { UpdateVariantPrice } from "@/types/api-body/update-variant-price";
 import { Mobile } from "@/types/mobile";
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
+import { RootState } from "../store";
 
 export const adminApiSlice = createApi({
   reducerPath: "adminApi",
   baseQuery: fetchBaseQuery({
     baseUrl: `${process.env.API_URL}`,
     prepareHeaders: (headers, { getState }) => {
-      const accessToke: any = getState();
-      const token =
-        "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IkVtcmFuIiwiX2lkIjoiNjQwMmVkMGM2NzEzZDJiNjQwMWIwZmY0IiwiaWF0IjoxNjg0MDUxMjQ4fQ.MtFIjT8YqS8jYPvcvvB3gqH0ovQyRFuPH6qJZycYPpE";
+      const store = getState() as RootState;
+      const token = store.auth.access_token;
       if (token) {
         headers.set("authorization", `Bearer ${token}`);
       }
@@ -19,7 +19,6 @@ export const adminApiSlice = createApi({
   endpoints: ({ mutation, query }) => ({
     getAllMobileList: query({
       query: () => "/mobiles/latest",
-
       transformResponse: (response: any) => response.data,
     }),
     getMobileById: query({

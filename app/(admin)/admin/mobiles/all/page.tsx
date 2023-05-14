@@ -20,7 +20,6 @@ const AllMobilesList = async ({
     data: { count, mobiles, parPage },
   } = await getData(searchParams.page);
   const currenPage = parseInt(searchParams.page);
-
   return (
     <section className=" mx-auto max-w-4xl  ">
       <div className="overflow-x-auto p-6 rounded-md border border-gray-200 bg-primary-bg-light">

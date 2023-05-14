@@ -1,4 +1,3 @@
-"use client";
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 import { mobileState } from "../../data/mobile";
 

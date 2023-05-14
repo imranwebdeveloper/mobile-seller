@@ -4,7 +4,7 @@ interface DashboardLayoutProps {
   children?: React.ReactNode;
 }
 
-const AdminLayout = ({ children }: DashboardLayoutProps) => {
+const AdminLayout = async ({ children }: DashboardLayoutProps) => {
   return (
     <div className="grid h-screen grid-cols-[280px_1fr] ">
       <Aside />

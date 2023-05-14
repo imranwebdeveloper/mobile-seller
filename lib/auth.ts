@@ -5,7 +5,6 @@ export const authOptions: NextAuthOptions = {
   providers: [
     CredentialsProvider({
       name: "credentials",
-
       credentials: {
         email: { label: "email", type: "text", placeholder: "Email" },
         password: { label: "Password", type: "password" },
@@ -20,9 +19,7 @@ export const authOptions: NextAuthOptions = {
           headers: { "Content-Type": "application/json" },
         });
         const { data } = await res.json();
-        if (data) {
-          return data;
-        }
+        if (data) return data;
         return null;
       },
     }),
@@ -37,8 +34,7 @@ export const authOptions: NextAuthOptions = {
       return { ...token, ...user };
     },
     async session({ session, token }) {
-      // session.user = token;
-      // console.log(token);
+      session.user = token;
       return session;
     },
     async redirect({ url, baseUrl }) {

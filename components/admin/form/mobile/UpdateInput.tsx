@@ -28,9 +28,11 @@ const UpdateInput: React.FC<Props> = ({ info, title, fieldName, id, type }) => {
   };
 
   const submitHandler = async () => {
-    await updateMobileContent({ id, content: data });
-    toast.success("Content updated");
-    router.refresh();
+    if (data) {
+      await updateMobileContent({ id, content: data });
+      toast.success("Content updated");
+      router.refresh();
+    }
   };
 
   return (
