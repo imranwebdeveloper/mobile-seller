@@ -2,19 +2,24 @@ import Image from "next/image";
 import PriceUpdateForm from "@/components/admin/form/mobile/PriceUpdateForm";
 import ContentUpdateFrom from "@/components/admin/form/mobile/ContentUpdateFrom";
 import { ReduxProviders } from "@/providers/ReduxProvider";
+import { headers } from "@/lib/fetchHeader";
+import { notFound } from "next/navigation";
 
 const getData = async (id: string) => {
   const res = await fetch(`${process.env.API_URL}/mobiles/${id}` as string, {
     cache: "no-cache",
-    headers: {
-      "x-api-key": process.env.API_KEY as string,
-    },
+    headers,
   });
+  if (!res.ok) throw new Error("Failed to fetch data");
   return res.json();
 };
 
 const UpdatePrice = async ({ params }: { params: { id: string } }) => {
   const { data } = await getData(params.id);
+
+  if (!data) {
+    notFound();
+  }
 
   return (
     <section className="mx-auto grid max-w-4xl grid-cols-3 gap-4 ">

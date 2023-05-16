@@ -3,16 +3,18 @@ import React from "react";
 import Image from "next/image";
 import Pagination from "@/components/common/Pagination";
 import MobileAction from "./MobileAction";
+import { headers } from "@/lib/fetchHeader";
+import { notFound } from "next/navigation";
+
 const getData = async (pageNumber: string) => {
   const res = await fetch(
     `${process.env.API_URL}/mobiles/latest?page=${pageNumber}` as string,
     {
       cache: "no-cache",
-      headers: {
-        "x-api-key": process.env.API_KEY as string,
-      },
+      headers,
     }
   );
+  if (!res.ok) throw new Error("Failed to fetch data");
   return res.json();
 };
 
@@ -21,9 +23,11 @@ const AllMobilesList = async ({
 }: {
   searchParams: { page: string };
 }) => {
-  const {
-    data: { count, mobiles, parPage },
-  } = await getData(searchParams.page);
+  const { data } = await getData(searchParams.page);
+  if (!data) {
+    notFound();
+  }
+  const { count, mobiles, parPage } = data;
   const currenPage = parseInt(searchParams.page);
   return (
     <section className=" mx-auto max-w-4xl  ">

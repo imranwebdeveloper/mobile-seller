@@ -9,11 +9,13 @@ const getData = async () => {
     headers: headers,
   });
   if (!res.ok) throw new Error("Failed to fetch data");
+
   return res.json();
 };
 
 const Home = async () => {
   const { data } = await getData();
+
   if (!data) {
     notFound();
   }

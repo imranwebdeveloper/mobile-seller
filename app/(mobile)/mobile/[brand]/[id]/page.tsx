@@ -14,9 +14,8 @@ import { headers } from "@/lib/fetchHeader";
 const getData = async (id: string) => {
   const res = await fetch(
     `${process.env.API_URL}/mobiles/model/${id}` as string,
-    { headers: headers, cache: "no-cache" }
+    { headers: headers }
   );
-
   if (!res.ok) throw new Error("Failed to fetch data");
   return res.json();
 };

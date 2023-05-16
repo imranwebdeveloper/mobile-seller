@@ -1,5 +1,7 @@
 import MobileCardContainer from "@/components/common/MobileCardContainer";
 import Pagination from "@/components/common/Pagination";
+import { headers } from "@/lib/fetchHeader";
+import { notFound } from "next/navigation";
 import React from "react";
 
 const getData = async (slug: string, pageNumber?: string) => {
@@ -7,12 +9,8 @@ const getData = async (slug: string, pageNumber?: string) => {
   url = pageNumber
     ? (`${process.env.API_URL}/mobiles/category/${slug}?page=${pageNumber}` as string)
     : (`${process.env.API_URL}/mobiles/category/${slug}` as string);
-
-  const res = await fetch(url, {
-    headers: {
-      "x-api-key": process.env.API_KEY as string,
-    },
-  });
+  const res = await fetch(url, { headers });
+  if (!res.ok) throw new Error("Failed to fetch data");
   return res.json();
 };
 
@@ -23,9 +21,13 @@ const CategoryPhones = async ({
   params: { slug: string };
   searchParams: { page: string };
 }) => {
-  const {
-    data: { parPage, count, mobiles },
-  } = await getData(params.slug, searchParams.page);
+  const { data } = await getData(params.slug, searchParams.page);
+
+  if (!data) {
+    notFound();
+  }
+
+  const { parPage, count, mobiles } = data;
   const category = params.slug
     .split("-")
     .map((word) => word.charAt(0).toUpperCase() + word.slice(1))

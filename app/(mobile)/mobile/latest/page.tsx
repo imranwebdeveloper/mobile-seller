@@ -12,7 +12,6 @@ const getData = async (pageNumber: string) => {
     }
   );
   if (!res.ok) throw new Error("Failed to fetch data");
-
   return res.json();
 };
 
@@ -22,7 +21,6 @@ const LatestMobiles = async ({
   searchParams: { page: string };
 }) => {
   const { data } = await getData(searchParams.page);
-
   if (!data) {
     notFound();
   }

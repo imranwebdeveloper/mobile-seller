@@ -8,6 +8,7 @@ export const adminApiSlice = createApi({
   baseQuery: fetchBaseQuery({
     baseUrl: `${process.env.API_URL}`,
     prepareHeaders: (headers, { getState }) => {
+      headers.set("x-api-key", process.env.API_KEY as string);
       const store = getState() as RootState;
       const token = store.auth.access_token;
       if (token) {

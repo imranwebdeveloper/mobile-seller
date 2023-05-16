@@ -12,6 +12,7 @@ import { RootState } from "@/redux/store";
 import LoadingSmall from "../../shared/LoadingSmall";
 import { useAddNewMobileMutation } from "@/redux/api/adminApiSlice";
 import { toast } from "react-hot-toast";
+import { headers } from "@/lib/fetchHeader";
 
 const FormWrapper = () => {
   const newMobile = useSelector((state: RootState) => state.mobileInfo);
@@ -28,6 +29,7 @@ const FormWrapper = () => {
         const res = await fetch(`${process.env.API_URL}/upload/mobile`, {
           method: "POST",
           body: formData,
+          headers: headers,
         });
         const { data } = await res.json();
         await addNewMobile({ ...newMobile, imgUrl: data.img_url });

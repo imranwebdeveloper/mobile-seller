@@ -8,10 +8,9 @@ interface Props {
 }
 
 const MobileCardContainer = ({ data }: Props) => {
-  if (data.length <= 0) notFound();
-
   return (
     <section className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 rounded  bg-primary-bg-light dark:bg-primary-bg-dark p-4 border dark:border-primary-bg-dark ">
+      {data.length <= 0 && <h1 className="text-2xl">No Data Found</h1>}
       {data.map((item) => {
         return (
           <Link
