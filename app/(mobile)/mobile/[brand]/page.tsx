@@ -1,5 +1,7 @@
 import MobileCardContainer from "@/components/common/MobileCardContainer";
 import Pagination from "@/components/common/Pagination";
+import { headers } from "@/lib/fetchHeader";
+import { notFound } from "next/navigation";
 
 const getData = async (slug: string, pageNumber?: string) => {
   let url: string;
@@ -7,7 +9,10 @@ const getData = async (slug: string, pageNumber?: string) => {
     ? (`${process.env.API_URL}/mobiles/brand/${slug}?page=${pageNumber}` as string)
     : (`${process.env.API_URL}/mobiles/brand/${slug}` as string);
 
-  const res = await fetch(url);
+  const res = await fetch(url, { headers: headers, cache: "no-cache" });
+
+  if (!res.ok) throw new Error("Failed to fetch data");
+
   return res.json();
 };
 
@@ -18,9 +23,12 @@ const BrandModelList = async ({
   params: { brand: string };
   searchParams: { page: string };
 }) => {
-  const {
-    data: { parPage, count, mobiles },
-  } = await getData(params.brand, searchParams.page);
+  const { data } = await getData(params.brand, searchParams.page);
+
+  if (!data) {
+    notFound();
+  }
+  const { parPage, count, mobiles } = data;
   const currenPage = parseInt(searchParams.page);
 
   return (

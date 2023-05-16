@@ -1,17 +1,18 @@
+import { Mobile } from "@/types/mobile";
 import Image from "next/image";
 import Link from "next/link";
+import { notFound } from "next/navigation";
 import React from "react";
 interface Props {
-  data: any;
+  data: Mobile[];
 }
 
 const MobileCardContainer = ({ data }: Props) => {
+  if (data.length <= 0) notFound();
+
   return (
     <section className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 rounded  bg-primary-bg-light dark:bg-primary-bg-dark p-4 border dark:border-primary-bg-dark ">
-      {data.length === 0 && (
-        <h3 className="font-bold text-center ">No data found</h3>
-      )}
-      {data.map((item: any) => {
+      {data.map((item) => {
         return (
           <Link
             key={item._id}

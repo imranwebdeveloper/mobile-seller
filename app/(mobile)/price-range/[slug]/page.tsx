@@ -1,18 +1,18 @@
 import MobileCardContainer from "@/components/common/MobileCardContainer";
-import PhoneCategory from "@/components/common/PhoneCategory";
-import SubHeader from "@/components/container/header/SubHeader";
-import PriceRange from "@/components/common/PriceRange";
-
 import React from "react";
 import Pagination from "@/components/common/Pagination";
+import { headers } from "@/lib/fetchHeader";
+import { notFound } from "next/navigation";
 
 const getData = async (slug: string, pageNumber?: string) => {
+  console.log(slug);
   let url: string;
   url = pageNumber
     ? (`${process.env.API_URL}/mobiles/price/${slug}?page=${pageNumber}` as string)
     : (`${process.env.API_URL}/mobiles/price/${slug}` as string);
 
-  const res = await fetch(url, { cache: "no-cache" });
+  const res = await fetch(url, { headers, cache: "no-cache" });
+  if (!res.ok) throw new Error("Failed to fetch data");
   return res.json();
 };
 
@@ -23,9 +23,12 @@ const PriceRanges = async ({
   searchParams: { page: string };
   params: { slug: string };
 }) => {
-  const {
-    data: { parPage, count, mobiles },
-  } = await getData(params.slug, searchParams.page);
+  console.log(params.slug);
+  const { data } = await getData(params.slug, searchParams.page);
+  // console.log(data);
+
+  const { parPage, count, mobiles } = data;
+
   return (
     <section className="main">
       <section className="layout container">

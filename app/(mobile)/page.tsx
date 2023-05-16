@@ -1,15 +1,23 @@
 import Link from "next/link";
 import MobileCardContainer from "@/components/common/MobileCardContainer";
+import { notFound } from "next/navigation";
+import { Mobile } from "@/types/mobile";
+import { headers } from "@/lib/fetchHeader";
+
 const getData = async () => {
-  const res = await fetch(`${process.env.API_URL}/mobiles/latest` as string);
+  const res = await fetch(`${process.env.API_URL}/mobiles/latest` as string, {
+    headers: headers,
+  });
+  if (!res.ok) throw new Error("Failed to fetch data");
   return res.json();
 };
 
 const Home = async () => {
-  const {
-    data: { mobiles },
-  } = await getData();
-
+  const { data } = await getData();
+  if (!data) {
+    notFound();
+  }
+  const { mobiles }: { mobiles: Mobile[] } = data;
   return (
     <section className="main">
       <section className="layout container">

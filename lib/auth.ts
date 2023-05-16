@@ -16,7 +16,10 @@ export const authOptions: NextAuthOptions = {
             email: credentials?.email,
             password: credentials?.password,
           }),
-          headers: { "Content-Type": "application/json" },
+          headers: {
+            "Content-Type": "application/json",
+            "x-api-key": process.env.API_KEY as string,
+          },
         });
         const { data } = await res.json();
         if (data) return data;

@@ -50,4 +50,5 @@ export interface Mobile {
   inTheBox: any;
   imgUrl: string;
   updatedAt: string;
+  model_id?: string;
 }

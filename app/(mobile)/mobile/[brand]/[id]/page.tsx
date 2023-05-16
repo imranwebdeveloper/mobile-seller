@@ -8,11 +8,16 @@ import { Metadata } from "next";
 import { MobileMetaData } from "@/lib/MobileMetaData";
 import Disclaimer from "@/components/common/Disclaimer";
 import MobilePriceTable from "@/components/common/MobilePriceTable";
+import { notFound } from "next/navigation";
+import { headers } from "@/lib/fetchHeader";
 
 const getData = async (id: string) => {
   const res = await fetch(
-    `${process.env.API_URL}/mobiles/model/${id}` as string
+    `${process.env.API_URL}/mobiles/model/${id}` as string,
+    { headers: headers, cache: "no-cache" }
   );
+
+  if (!res.ok) throw new Error("Failed to fetch data");
   return res.json();
 };
 
@@ -23,8 +28,10 @@ const getData = async (id: string) => {
 // }
 
 const ModelDetails = async ({ params }: { params: { id: string } }) => {
-  const res = await getData(params.id);
-  const data: Mobile = res.data;
+  const { data }: { data: Mobile } = await getData(params.id);
+  if (!data) {
+    notFound();
+  }
   const variant = data.variant
     .map((item: any) => `${item.rom}/${item.ram} GB`)
     .join(", ");

@@ -6,6 +6,9 @@ import { ReduxProviders } from "@/providers/ReduxProvider";
 const getData = async (id: string) => {
   const res = await fetch(`${process.env.API_URL}/mobiles/${id}` as string, {
     cache: "no-cache",
+    headers: {
+      "x-api-key": process.env.API_KEY as string,
+    },
   });
   return res.json();
 };

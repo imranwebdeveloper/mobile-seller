@@ -1,11 +1,18 @@
 import React from "react";
 import Pagination from "@/components/common/Pagination";
 import MobileCardContainer from "@/components/common/MobileCardContainer";
+import { headers } from "@/lib/fetchHeader";
+import { notFound } from "next/navigation";
 
 const getData = async (pageNumber: string) => {
   const res = await fetch(
-    `${process.env.API_URL}/mobiles/latest?page=${pageNumber}` as string
+    `${process.env.API_URL}/mobiles/latest?page=${pageNumber}` as string,
+    {
+      headers: headers,
+    }
   );
+  if (!res.ok) throw new Error("Failed to fetch data");
+
   return res.json();
 };
 
@@ -14,9 +21,13 @@ const LatestMobiles = async ({
 }: {
   searchParams: { page: string };
 }) => {
-  const {
-    data: { count, mobiles, parPage },
-  } = await getData(searchParams.page);
+  const { data } = await getData(searchParams.page);
+
+  if (!data) {
+    notFound();
+  }
+
+  const { count, mobiles, parPage } = data;
   const currenPage = parseInt(searchParams.page);
 
   return (

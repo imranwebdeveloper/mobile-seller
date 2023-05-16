@@ -6,7 +6,12 @@ import MobileAction from "./MobileAction";
 const getData = async (pageNumber: string) => {
   const res = await fetch(
     `${process.env.API_URL}/mobiles/latest?page=${pageNumber}` as string,
-    { cache: "no-cache" }
+    {
+      cache: "no-cache",
+      headers: {
+        "x-api-key": process.env.API_KEY as string,
+      },
+    }
   );
   return res.json();
 };

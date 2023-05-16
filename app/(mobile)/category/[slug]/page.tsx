@@ -8,7 +8,11 @@ const getData = async (slug: string, pageNumber?: string) => {
     ? (`${process.env.API_URL}/mobiles/category/${slug}?page=${pageNumber}` as string)
     : (`${process.env.API_URL}/mobiles/category/${slug}` as string);
 
-  const res = await fetch(url, { cache: "no-cache" });
+  const res = await fetch(url, {
+    headers: {
+      "x-api-key": process.env.API_KEY as string,
+    },
+  });
   return res.json();
 };
 
