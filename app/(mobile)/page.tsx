@@ -8,8 +8,7 @@ const getData = async () => {
   const res = await fetch(`${process.env.API_URL}/mobiles/latest` as string, {
     headers: headers,
   });
-  if (!res.ok) throw new Error("Failed to fetch data");
-
+  if (!res.ok) throw new Error(await res.json().then((data) => data.message));
   return res.json();
 };
 

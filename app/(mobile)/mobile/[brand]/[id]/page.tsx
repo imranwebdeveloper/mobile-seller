@@ -16,7 +16,7 @@ const getData = async (id: string) => {
     `${process.env.API_URL}/mobiles/model/${id}` as string,
     { headers: headers }
   );
-  if (!res.ok) throw new Error("Failed to fetch data");
+  if (!res.ok) throw new Error(await res.json().then((data) => data.message));
   return res.json();
 };
 
