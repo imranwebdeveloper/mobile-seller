@@ -5,6 +5,9 @@ export const metadata: Metadata = {
   title: `Latest Mobile Price in Bangladesh ${new Date().getFullYear()} | ${
     process.env.LOGO
   }`,
+  alternates: {
+    canonical: process.env.FULL_DOMAIN_URL,
+  },
   description: `Find latest official mobile phone, smartphone, android, feature phone etc. latest updated mobile prices in Bangladesh 2023 at ${process.env.LOGO}`,
   applicationName: process.env.LOGO,
   robots: "index,follow",
@@ -48,9 +51,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <head>
-        <link rel="canonical" href="https://www.mobilesellerbd.com"></link>
-      </head>
+      <head></head>
       <body>{children}</body>
     </html>
   );

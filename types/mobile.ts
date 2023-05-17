@@ -52,3 +52,13 @@ export interface Mobile {
   updatedAt: string;
   model_id?: string;
 }
+
+export interface MobileShortInfo {
+  _id: string;
+  brandName: string;
+  model: string;
+  variant: Variant[];
+  imgUrl: string;
+  updatedAt: string;
+  model_id: string;
+}
