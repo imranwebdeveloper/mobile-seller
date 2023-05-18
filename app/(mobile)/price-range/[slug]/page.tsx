@@ -14,6 +14,8 @@ const getData = async (slug: string, pageNumber?: string) => {
   if (!res.ok) throw new Error(await res.json().then((data) => data.message));
   return res.json();
 };
+
+// SEO Meta tag
 export async function generateMetadata({
   params,
 }: {

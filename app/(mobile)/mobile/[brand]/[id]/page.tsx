@@ -5,7 +5,6 @@ import Content from "@/components/common/Content";
 import { Mobile } from "@/types/mobile";
 import Contents from "@/components/common/Contents";
 import { Metadata } from "next";
-import { MobileMetaData } from "@/lib/MobileMetaData";
 import Disclaimer from "@/components/common/Disclaimer";
 import MobilePriceTable from "@/components/common/MobilePriceTable";
 import { notFound } from "next/navigation";
@@ -19,6 +18,50 @@ const getData = async (id: string) => {
   if (!res.ok) throw new Error(await res.json().then((data) => data.message));
   return res.json();
 };
+
+export async function generateMetadata({
+  params,
+}: {
+  params: { id: string };
+}): Promise<Metadata> {
+  const { data }: { data: Mobile } = await getData(params.id);
+
+  const metadata = {
+    title: `${data.brandName} ${data.model} Specs, Price in Bangladesh | ${process.env.LOGO}`,
+    description: `Explore the ${data.brandName} ${data.model} specifications, features, availability, and price in Bangladesh at ${process.env.LOGO}. Get detailed information about the ${data.brandName} ${data.model} and make an informed purchase decision.`,
+    alternates: {
+      canonical: `${
+        process.env.FULL_DOMAIN_URL
+      }/mobile/${data.brandName.toLowerCase()}/${params.id}`,
+    },
+    openGraph: {
+      type: "website",
+      title: `${data.brandName} ${data.model} Specs, Price in Bangladesh | ${process.env.LOGO}`,
+      description: `Explore the ${data.brandName} ${data.model} specifications, features, availability, and price in Bangladesh at ${process.env.LOGO}. Get detailed information about the ${data.brandName} ${data.model} and make an informed purchase decision.`,
+
+      url: `${
+        process.env.FULL_DOMAIN_URL
+      }/mobiles/${data.brandName.toLowerCase()}/${params.id}`,
+      images: [
+        {
+          url: data.imgUrl,
+          alt: "MobileSellerBD.com",
+          width: 600,
+          height: 315,
+        },
+      ],
+    },
+
+    twitter: {
+      card: "summary_large_image",
+      title: `${data.brandName} ${data.model} Specs, Price in Bangladesh | ${process.env.LOGO}`,
+      description: `Explore the ${data.brandName} ${data.model} specifications, features, availability, and price in Bangladesh at ${process.env.LOGO}. Get detailed information about the ${data.brandName} ${data.model} and make an informed purchase decision.`,
+      images: data.imgUrl,
+    },
+  };
+
+  return metadata;
+}
 
 const ModelDetails = async ({ params }: { params: { id: string } }) => {
   const { data }: { data: Mobile } = await getData(params.id);

@@ -1,7 +1,7 @@
 import Link from "next/link";
 import MobileCardContainer from "@/components/common/MobileCardContainer";
 import { notFound } from "next/navigation";
-import { Mobile } from "@/types/mobile";
+import { MobileShortInfo } from "@/types/mobile";
 import { headers } from "@/lib/fetchHeader";
 
 const getData = async () => {
@@ -18,7 +18,7 @@ const Home = async () => {
   if (!data) {
     notFound();
   }
-  const { mobiles }: { mobiles: Mobile[] } = data;
+  const { mobiles }: { mobiles: MobileShortInfo[] } = data;
   return (
     <section className="main">
       <section className="layout container">
