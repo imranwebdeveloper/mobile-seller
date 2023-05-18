@@ -30,7 +30,7 @@ const MobileCardContainer = ({ data }: Props) => {
               </header>
 
               <main className="text-sm text-center">
-                <h4 className="font-bold">{item.brandName}</h4>
+                <p className="font-bold text-lg">{item.brandName}</p>
                 <p>{item.model}</p>
               </main>
               <footer>

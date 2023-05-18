@@ -10,11 +10,11 @@ const NavContainer = () => {
 
   return (
     <section className="main">
-      <section className="layout container px-1">
+      <div className="layout container px-1">
         <SubHeader slug={brand ? brand : ""} />
         <PriceRange slug={slug ? slug : ""} />
         <PhoneCategory slug={slug ? slug : ""} />
-      </section>
+      </div>
     </section>
   );
 };

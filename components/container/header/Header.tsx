@@ -22,7 +22,7 @@ const Header = () => {
 
   return (
     <header className="root header ">
-      <div className="layout gap-2 df_jb_ic container ">
+      <div className="layout gap-2 flex justify-between items-center container ">
         <div>
           <Link href="/">
             <Image
@@ -41,11 +41,16 @@ const Header = () => {
             type="button"
             onClick={openModal}
             className="text-lg p-2 md:hidden"
+            aria-label="search"
           >
             <BsSearch />
           </button>
           <Search />
-          <button onClick={() => signIn()} className="btn-login">
+          <button
+            onClick={() => signIn()}
+            className="btn-login"
+            aria-label="login"
+          >
             Login
           </button>
         </div>
