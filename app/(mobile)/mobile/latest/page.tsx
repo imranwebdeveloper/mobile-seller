@@ -3,6 +3,7 @@ import Pagination from "@/components/common/Pagination";
 import MobileCardContainer from "@/components/common/MobileCardContainer";
 import { headers } from "@/lib/fetchHeader";
 import { notFound } from "next/navigation";
+import { Metadata } from "next";
 
 const getData = async (pageNumber: string) => {
   const res = await fetch(
@@ -11,10 +12,41 @@ const getData = async (pageNumber: string) => {
       headers: headers,
     }
   );
-  if (!res.ok) throw new Error("Failed to fetch data");
+  if (!res.ok) throw new Error(await res.json().then((data) => data.message));
   return res.json();
 };
+export async function generateMetadata(): Promise<Metadata> {
+  const metadata = {
+    title: `Latest Mobile Phones Price in Bangladesh | ${process.env.LOGO}`,
+    description: `Discover the latest mobile phones price in Bangladesh at ${process.env.LOGO}. Stay updated with the newest smartphone releases, features, specifications, and prices. Find the perfect mobile device to suit your needs.`,
+    alternates: {
+      canonical: `${process.env.FULL_DOMAIN_URL}/mobiles/latest`,
+    },
+    openGraph: {
+      type: "website",
+      title: `Latest Mobile Phones Price in Bangladesh | ${process.env.LOGO}`,
+      description: `Discover the latest mobile phones price in Bangladesh at ${process.env.LOGO}. Stay updated with the newest smartphone releases, features, specifications, and prices. Find the perfect mobile device to suit your needs.`,
+      url: `${process.env.FULL_DOMAIN_URL}/mobiles/latest`,
+      images: [
+        {
+          url: `${process.env.FULL_DOMAIN_URL}/logo.png`,
+          alt: "MobileSellerBD.com",
+          width: 600,
+          height: 315,
+        },
+      ],
+    },
 
+    twitter: {
+      card: "summary_large_image",
+      title: `Latest Mobile Phones Price in Bangladesh | ${process.env.LOGO}`,
+      description: `Discover the latest mobile phones price in Bangladesh at ${process.env.LOGO}. Stay updated with the newest smartphone releases, features, specifications, and prices. Find the perfect mobile device to suit your needs.`,
+      images: `${process.env.FULL_DOMAIN_URL}/logo.png`,
+    },
+  };
+
+  return metadata;
+}
 const LatestMobiles = async ({
   searchParams,
 }: {

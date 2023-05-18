@@ -20,19 +20,13 @@ const getData = async (id: string) => {
   return res.json();
 };
 
-// export async function generateMetadata({ params }: any): Promise<Metadata> {
-//   const { data } = await getData(params.id);
-//   const metaData = new MobileMetaData(data);
-//   return metaData;
-// }
-
 const ModelDetails = async ({ params }: { params: { id: string } }) => {
   const { data }: { data: Mobile } = await getData(params.id);
   if (!data) {
     notFound();
   }
   const variant = data.variant
-    .map((item: any) => `${item.rom}/${item.ram} GB`)
+    .map((item) => `${item.rom}/${item.ram} GB`)
     .join(", ");
   const updateDate = format(new Date(data.updatedAt), "dd/MM/yyyy");
   const relDate = format(new Date(data.releasedDate), "dd/MM/yyyy");
