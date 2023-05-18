@@ -34,14 +34,14 @@ export async function generateMetadata({
         process.env.FULL_DOMAIN_URL
       }/mobile/${data.brandName.toLowerCase()}/${params.id}`,
     },
+
     openGraph: {
       type: "website",
       title: `${data.brandName} ${data.model} Specs, Price in Bangladesh | ${process.env.LOGO}`,
       description: `Explore the ${data.brandName} ${data.model} specifications, features, availability, and price in Bangladesh at ${process.env.LOGO}. Get detailed information about the ${data.brandName} ${data.model} and make an informed purchase decision.`,
-
       url: `${
         process.env.FULL_DOMAIN_URL
-      }/mobiles/${data.brandName.toLowerCase()}/${params.id}`,
+      }/mobile/${data.brandName.toLowerCase()}/${params.id}`,
       images: [
         {
           url: data.imgUrl,

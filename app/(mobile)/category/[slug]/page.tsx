@@ -1,6 +1,8 @@
 import MobileCardContainer from "@/components/common/MobileCardContainer";
 import Pagination from "@/components/common/Pagination";
 import { headers } from "@/lib/fetchHeader";
+import { toCategoryCase } from "@/utils/toCategoryCase";
+import { Metadata } from "next";
 import { notFound } from "next/navigation";
 import React from "react";
 
@@ -10,10 +12,47 @@ const getData = async (slug: string, pageNumber?: string) => {
     ? (`${process.env.API_URL}/mobiles/category/${slug}?page=${pageNumber}` as string)
     : (`${process.env.API_URL}/mobiles/category/${slug}` as string);
   const res = await fetch(url, { headers });
-  if (!res.ok) throw new Error("Failed to fetch data");
+  if (!res.ok) throw new Error(await res.json().then((data) => data.message));
   return res.json();
 };
+export async function generateMetadata({
+  params,
+}: {
+  params: { slug: string };
+}): Promise<Metadata> {
+  const category = toCategoryCase(params.slug);
 
+  const metadata = {
+    title: `Latest ${category} Price in Bangladesh | ${process.env.LOGO}`,
+    description: `Discover the latest ${category} price in Bangladesh at ${process.env.LOGO}. Browse through a wide range of ${category} models, including smartphones, tablets, and feature phones. Compare prices, specifications, and features to find the perfect ${category} for your needs.`,
+    alternates: {
+      canonical: `${process.env.FULL_DOMAIN_URL}/category/${params.slug}`,
+    },
+    openGraph: {
+      type: "website",
+      title: `Latest ${category} Price in Bangladesh | ${process.env.LOGO}`,
+      description: `Discover the latest ${category} price in Bangladesh at ${process.env.LOGO}. Browse through a wide range of ${category} models, including smartphones, tablets, and feature phones. Compare prices, specifications, and features to find the perfect ${category} for your needs.`,
+      url: `${process.env.FULL_DOMAIN_URL}/category/${params.slug}`,
+      images: [
+        {
+          url: `${process.env.FULL_DOMAIN_URL}/logo.png`,
+          alt: "MobileSellerBD.com",
+          width: 600,
+          height: 315,
+        },
+      ],
+    },
+
+    twitter: {
+      card: "summary_large_image",
+      title: `Latest ${category} Price in Bangladesh | ${process.env.LOGO}`,
+      description: `Discover the latest ${category} price in Bangladesh at ${process.env.LOGO}. Browse through a wide range of ${category} models, including smartphones, tablets, and feature phones. Compare prices, specifications, and features to find the perfect ${category} for your needs.`,
+      images: `${process.env.FULL_DOMAIN_URL}/logo.png`,
+    },
+  };
+
+  return metadata;
+}
 const CategoryPhones = async ({
   params,
   searchParams,
@@ -28,12 +67,8 @@ const CategoryPhones = async ({
   }
 
   const { parPage, count, mobiles } = data;
-  const category = params.slug
-    .split("-")
-    .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
-    .join(" ");
+  const category = toCategoryCase(params.slug);
 
-  category.charAt(0).toUpperCase();
   return (
     <section className="main">
       <section className="layout container">

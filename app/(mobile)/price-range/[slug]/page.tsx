@@ -30,7 +30,7 @@ export async function generateMetadata({
       process.env.LOGO
     }. Browse through our collection of high-quality smartphones from top brands, compare prices, and make an informed purchase decision.`,
     alternates: {
-      canonical: `${process.env.FULL_DOMAIN_URL}/mobiles/price/${params.slug}`,
+      canonical: `${process.env.FULL_DOMAIN_URL}/price-range/${params.slug}`,
     },
     openGraph: {
       type: "website",
@@ -40,7 +40,7 @@ export async function generateMetadata({
       } ${prices[1] ? `and ${prices[1]}` : ""} Tk in Bangladesh at ${
         process.env.LOGO
       }. Browse through our collection of high-quality smartphones from top brands, compare prices, and make an informed purchase decision.`,
-      url: `${process.env.FULL_DOMAIN_URL}/mobiles/price/${params.slug}`,
+      url: `${process.env.FULL_DOMAIN_URL}/price-range/${params.slug}`,
       images: [
         {
           url: `${process.env.FULL_DOMAIN_URL}/logo.png`,

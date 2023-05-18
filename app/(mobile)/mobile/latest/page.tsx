@@ -20,13 +20,13 @@ export async function generateMetadata(): Promise<Metadata> {
     title: `Latest Mobile Phones Price in Bangladesh | ${process.env.LOGO}`,
     description: `Discover the latest mobile phones price in Bangladesh at ${process.env.LOGO}. Stay updated with the newest smartphone releases, features, specifications, and prices. Find the perfect mobile device to suit your needs.`,
     alternates: {
-      canonical: `${process.env.FULL_DOMAIN_URL}/mobiles/latest`,
+      canonical: `${process.env.FULL_DOMAIN_URL}/mobile/latest`,
     },
     openGraph: {
       type: "website",
       title: `Latest Mobile Phones Price in Bangladesh | ${process.env.LOGO}`,
       description: `Discover the latest mobile phones price in Bangladesh at ${process.env.LOGO}. Stay updated with the newest smartphone releases, features, specifications, and prices. Find the perfect mobile device to suit your needs.`,
-      url: `${process.env.FULL_DOMAIN_URL}/mobiles/latest`,
+      url: `${process.env.FULL_DOMAIN_URL}/mobile/latest`,
       images: [
         {
           url: `${process.env.FULL_DOMAIN_URL}/logo.png`,
