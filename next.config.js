@@ -23,6 +23,7 @@ const nextConfig = {
     IMGDB_API_KEY: process.env.IMGDB_API_KEY,
     TOKEN_NAME: process.env.TOKEN_NAME,
     LOGO: process.env.LOGO,
+    FULL_DOMAIN_URL: process.env.FULL_DOMAIN_URL,
   },
 };
 
