@@ -8,7 +8,7 @@ interface Props {
 
 const MobileCardContainer = ({ data }: Props) => {
   return (
-    <section className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 rounded  bg-primary-bg-light dark:bg-primary-bg-dark p-4 border dark:border-primary-bg-dark ">
+    <section className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 rounded gap-2 md:gap-4  ">
       {data.length <= 0 && <h1 className="text-2xl">No Data Found</h1>}
       {data.map((item) => {
         return (
@@ -16,7 +16,7 @@ const MobileCardContainer = ({ data }: Props) => {
             key={item._id}
             href={`mobile/${item.brandName.toLowerCase()}/${item.model_id}`}
           >
-            <article className="transition cursor-pointer hover:scale-105  flex flex-col gap-1 p-4">
+            <article className="transition cursor-pointer hover:scale-105  flex flex-col border rounded-md bg-primary-bg-light p-4">
               <header>
                 <Image
                   src={item.imgUrl}
@@ -28,8 +28,8 @@ const MobileCardContainer = ({ data }: Props) => {
                 />
               </header>
 
-              <main className="text-sm text-center">
-                <p className="font-bold text-lg">{item.brandName}</p>
+              <main className="text-sm text-center mt-1">
+                <p className="font-bold md:text-base ">{item.brandName}</p>
                 <p>{item.model}</p>
               </main>
               <footer>

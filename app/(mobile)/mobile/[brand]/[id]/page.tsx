@@ -77,7 +77,7 @@ const ModelDetails = async ({ params }: { params: { id: string } }) => {
     <section className="main">
       <section className="layout container py-4 ">
         <article className="mx-auto  grid grid-cols-1 md:grid-cols-3 gap-2 max-w-3xl ">
-          <div className="border bg-primary-bg-light rounded flex flex-col gap-2 p-6">
+          <div className="border bg-primary-bg-light rounded-md flex flex-col gap-2 p-6">
             <Image
               alt={`${data.brandName} ${data.model} mobile`}
               src={data.imgUrl}
@@ -91,7 +91,7 @@ const ModelDetails = async ({ params }: { params: { id: string } }) => {
               <h4>{data.model}</h4>
             </div>
           </div>
-          <div className="md:col-span-2 border rounded bg-primary-bg-light p-4 md:px-8   ">
+          <div className="md:col-span-2 border rounded-md bg-primary-bg-light p-4 md:px-8   ">
             <h1 className="mb-2">{data.model} Price in Bangladesh</h1>
             <MobilePriceTable variants={data.variant} date={updateDate} />
             <div className="mt-2 flex gap-2 border  text-sm items-center md:hidden  ">
@@ -100,7 +100,7 @@ const ModelDetails = async ({ params }: { params: { id: string } }) => {
             </div>
           </div>
         </article>
-        <article className="rounded border max-w-3xl mx-auto bg-primary-bg-light   tracking-tight text-sm  md:p-6 px-2 py-4    mt-2  ">
+        <article className="rounded-md border max-w-3xl mx-auto bg-primary-bg-light   tracking-tight text-sm  md:p-6 px-2 py-4    mt-2  ">
           <Content content={`${data.brandName}, ${data.model}`} title="Model" />
           <Content content={relDate} title="Rel. Date" />
           <Content content={data.networkBrands} title="Network" />

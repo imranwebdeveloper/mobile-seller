@@ -26,7 +26,7 @@ const Home = async () => {
           <h1 className="text-2xl">Latest Mobile Phones Price in Bangladesh</h1>
         </div>
         <MobileCardContainer data={mobiles} />
-        <div className="flex justify-center mt-2">
+        <div className="flex justify-center py-8">
           <Link
             href={{ pathname: "mobile/latest", query: { page: "2" } }}
             className="btn-primary"
