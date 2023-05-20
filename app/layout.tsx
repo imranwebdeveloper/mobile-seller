@@ -1,5 +1,6 @@
 import { Metadata } from "next";
 import "./globals.css";
+import Script from "next/script";
 
 export const metadata: Metadata = {
   title: `Latest Mobile Price in Bangladesh ${new Date().getFullYear()} | ${
@@ -52,7 +53,17 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <head></head>
+      <Script
+        async
+        src="https://www.googletagmanager.com/gtag/js?id=G-W7NHE0JT3Z"
+      />
+      <Script id="google-analytics">
+        {`window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  
+  gtag('config', 'G-W7NHE0JT3Z');`}
+      </Script>
       <body>{children}</body>
     </html>
   );
