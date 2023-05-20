@@ -5,12 +5,16 @@ import { ReduxProviders } from "@/providers/ReduxProvider";
 import { headers } from "@/lib/fetchHeader";
 import { notFound } from "next/navigation";
 
+import { Metadata } from "next";
+import { MetaData } from "@/lib/metaData";
+export const metadata: Metadata = MetaData.Admin.Mobiles.Update;
+
 const getData = async (id: string) => {
   const res = await fetch(`${process.env.API_URL}/mobiles/${id}` as string, {
-    cache: "no-cache",
+    cache: "no-store",
     headers,
   });
-  if (!res.ok) throw new Error("Failed to fetch data");
+  if (!res.ok) throw new Error(await res.json().then((data) => data.message));
   return res.json();
 };
 

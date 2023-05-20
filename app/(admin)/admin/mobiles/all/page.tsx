@@ -5,6 +5,10 @@ import Pagination from "@/components/common/Pagination";
 import MobileAction from "./MobileAction";
 import { headers } from "@/lib/fetchHeader";
 import { notFound } from "next/navigation";
+import { Metadata } from "next";
+import { MetaData } from "@/lib/metaData";
+
+export const metadata: Metadata = MetaData.Admin.Mobiles.All;
 
 const getData = async (pageNumber: string) => {
   const res = await fetch(
@@ -14,7 +18,7 @@ const getData = async (pageNumber: string) => {
       headers,
     }
   );
-  if (!res.ok) throw new Error("Failed to fetch data");
+  if (!res.ok) throw new Error(await res.json().then((data) => data.message));
   return res.json();
 };
 

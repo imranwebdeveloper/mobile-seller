@@ -11,4 +11,21 @@ export const MetaData = {
     title: `Privacy Policy | ${process.env.LOGO}`,
     description: `Our privacy policy explains how we collect, use, and protect your personal information when you visit our website. Learn more about our data privacy practices and how we keep your information safe`,
   },
+
+  Admin: {
+    Dashboard: {
+      title: `Dashboard | ${process.env.LOGO}`,
+    },
+    Mobiles: {
+      Add: {
+        title: `Add New Mobile | ${process.env.LOGO}`,
+      },
+      All: {
+        title: `See Your All Mobile | ${process.env.LOGO}`,
+      },
+      Update: {
+        title: `Update Mobile information | ${process.env.LOGO}`,
+      },
+    },
+  },
 };

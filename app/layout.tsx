@@ -21,7 +21,7 @@ export const metadata: Metadata = {
     url: process.env.FULL_DOMAIN_URL,
     images: [
       {
-        url: `${process.env.FULL_DOMAIN_URL}/logo.png`,
+        url: "https://firebasestorage.googleapis.com/v0/b/mobile-seller-e6165.appspot.com/o/logo.png?alt=media&token=e20206ed-013e-4fe7-a6e4-567de9d2838d",
         alt: "MobileSellerBD.com",
         width: 600,
         height: 315,
@@ -38,7 +38,8 @@ export const metadata: Metadata = {
     }`,
 
     description: `Find latest official mobile phone, smartphone, android, feature phone etc. latest updated mobile prices in Bangladesh 2023 at ${process.env.LOGO}`,
-    images: `${process.env.FULL_DOMAIN_URL}/logo.png`,
+    images:
+      "https://firebasestorage.googleapis.com/v0/b/mobile-seller-e6165.appspot.com/o/logo.png?alt=media&token=e20206ed-013e-4fe7-a6e4-567de9d2838d",
   },
   metadataBase: new URL(process.env.API_URL as string),
   colorScheme: "light",

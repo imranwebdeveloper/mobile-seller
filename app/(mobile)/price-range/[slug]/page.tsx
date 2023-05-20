@@ -43,7 +43,7 @@ export async function generateMetadata({
       url: `${process.env.FULL_DOMAIN_URL}/price-range/${params.slug}`,
       images: [
         {
-          url: `${process.env.FULL_DOMAIN_URL}/logo.png`,
+          url: "https://firebasestorage.googleapis.com/v0/b/mobile-seller-e6165.appspot.com/o/logo.png?alt=media&token=e20206ed-013e-4fe7-a6e4-567de9d2838d",
           alt: "MobileSellerBD.com",
           width: 600,
           height: 315,
@@ -60,7 +60,8 @@ export async function generateMetadata({
       } ${prices[1] ? `and ${prices[1]}` : ""} Tk in Bangladesh at ${
         process.env.LOGO
       }. Browse through our collection of high-quality smartphones from top brands, compare prices, and make an informed purchase decision.`,
-      images: `${process.env.FULL_DOMAIN_URL}/logo.png`,
+      images:
+        "https://firebasestorage.googleapis.com/v0/b/mobile-seller-e6165.appspot.com/o/logo.png?alt=media&token=e20206ed-013e-4fe7-a6e4-567de9d2838d",
     },
   };
 

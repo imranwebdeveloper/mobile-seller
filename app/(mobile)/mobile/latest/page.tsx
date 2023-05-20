@@ -29,7 +29,7 @@ export async function generateMetadata(): Promise<Metadata> {
       url: `${process.env.FULL_DOMAIN_URL}/mobile/latest`,
       images: [
         {
-          url: `${process.env.FULL_DOMAIN_URL}/logo.png`,
+          url: "https://firebasestorage.googleapis.com/v0/b/mobile-seller-e6165.appspot.com/o/logo.png?alt=media&token=e20206ed-013e-4fe7-a6e4-567de9d2838d",
           alt: "MobileSellerBD.com",
           width: 600,
           height: 315,
@@ -41,7 +41,8 @@ export async function generateMetadata(): Promise<Metadata> {
       card: "summary_large_image",
       title: `Latest Mobile Phones Price in Bangladesh | ${process.env.LOGO}`,
       description: `Discover the latest mobile phones price in Bangladesh at ${process.env.LOGO}. Stay updated with the newest smartphone releases, features, specifications, and prices. Find the perfect mobile device to suit your needs.`,
-      images: `${process.env.FULL_DOMAIN_URL}/logo.png`,
+      images:
+        "https://firebasestorage.googleapis.com/v0/b/mobile-seller-e6165.appspot.com/o/logo.png?alt=media&token=e20206ed-013e-4fe7-a6e4-567de9d2838d",
     },
   };
 

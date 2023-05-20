@@ -35,7 +35,7 @@ export async function generateMetadata({
       url: `${process.env.FULL_DOMAIN_URL}/category/${params.slug}`,
       images: [
         {
-          url: `${process.env.FULL_DOMAIN_URL}/logo.png`,
+          url: "https://firebasestorage.googleapis.com/v0/b/mobile-seller-e6165.appspot.com/o/logo.png?alt=media&token=e20206ed-013e-4fe7-a6e4-567de9d2838d",
           alt: "MobileSellerBD.com",
           width: 600,
           height: 315,
@@ -47,7 +47,8 @@ export async function generateMetadata({
       card: "summary_large_image",
       title: `Latest ${category} Price in Bangladesh | ${process.env.LOGO}`,
       description: `Discover the latest ${category} price in Bangladesh at ${process.env.LOGO}. Browse through a wide range of ${category} models, including smartphones, tablets, and feature phones. Compare prices, specifications, and features to find the perfect ${category} for your needs.`,
-      images: `${process.env.FULL_DOMAIN_URL}/logo.png`,
+      images:
+        "https://firebasestorage.googleapis.com/v0/b/mobile-seller-e6165.appspot.com/o/logo.png?alt=media&token=e20206ed-013e-4fe7-a6e4-567de9d2838d",
     },
   };
 
