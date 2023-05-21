@@ -16,9 +16,9 @@ const Contents: React.FC<Props> = ({ title, contents, none }) => {
             none && "border-b"
           }`}
         >
-          <h4 className="min-w-[125px] font-bold  text-sm md:text-base bg-slate-50 p-1 md:p-2 md:border-r">
+          <p className="min-w-[125px] font-bold   text-primary-bg-dark bg-slate-50 p-1 md:p-2 md:border-r">
             {title}
-          </h4>
+          </p>
           <ul className="flex-1 p-1 md:p-2">
             {contents?.map((item: string, i: number) => {
               return (

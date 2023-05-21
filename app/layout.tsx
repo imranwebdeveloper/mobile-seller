@@ -1,6 +1,14 @@
 import { Metadata } from "next";
 import "./globals.css";
 import Script from "next/script";
+import { Lato } from "next/font/google";
+
+// If loading a variable font, you don't need to specify the font weight
+const lato = Lato({
+  subsets: ["latin"],
+  display: "swap",
+  weight: ["300", "400", "700", "900"],
+});
 
 export const metadata: Metadata = {
   title: `Latest Mobile Price in Bangladesh ${new Date().getFullYear()} | ${
@@ -52,7 +60,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
+    <html lang="en" className={lato.className}>
       <Script
         async
         src="https://www.googletagmanager.com/gtag/js?id=G-W7NHE0JT3Z"

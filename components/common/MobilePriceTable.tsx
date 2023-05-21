@@ -9,8 +9,8 @@ interface Props {
 const MobilePriceTable: React.FC<Props> = ({ variants, date }) => {
   return (
     <div className="overflow-hidden">
-      <table className="min-w-full border text-center  text-sm border-collapse ">
-        <thead className="bg-slate-50">
+      <table className="min-w-full border text-center  border-collapse ">
+        <thead className="bg-slate-50  text-primary-bg-dark">
           <tr>
             <th className="py-2 border">Variants</th>
             <th className="py-2 border">Official</th>

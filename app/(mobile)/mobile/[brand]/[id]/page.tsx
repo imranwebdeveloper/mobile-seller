@@ -75,7 +75,7 @@ const ModelDetails = async ({ params }: { params: { id: string } }) => {
   const relDate = format(new Date(data.releasedDate), "dd/MM/yyyy");
   return (
     <section className="main">
-      <section className="layout container py-4 ">
+      <section className="layout container py-4  text-[#666]">
         <article className="mx-auto  grid grid-cols-1 md:grid-cols-3 gap-2 max-w-3xl ">
           <div className="border bg-primary-bg-light rounded-md flex flex-col gap-2 p-6">
             <Image
@@ -87,20 +87,20 @@ const ModelDetails = async ({ params }: { params: { id: string } }) => {
               className="w-32 h-40 mx-auto"
             />
             <div className="text-center">
-              <h3 className="font-bold text-lg">{data.brandName}</h3>
-              <h4>{data.model}</h4>
+              <p className="font-bold text-primary-bg-dark">{data.brandName}</p>
+              <p>{data.model}</p>
             </div>
           </div>
           <div className="md:col-span-2 border rounded-md bg-primary-bg-light p-4 md:px-8   ">
             <h1 className="mb-2">{data.model} Price in Bangladesh</h1>
             <MobilePriceTable variants={data.variant} date={updateDate} />
-            <div className="mt-2 flex gap-2 border  text-sm items-center md:hidden  ">
+            <div className="mt-2 flex gap-2 border  items-center md:hidden  ">
               <p className="p-2 bg-slate-50 border-r ">Last Updated</p>
               <time dateTime={updateDate}>{updateDate}</time>
             </div>
           </div>
         </article>
-        <article className="rounded-md border max-w-3xl mx-auto bg-primary-bg-light   tracking-tight text-sm  md:p-6 px-2 py-4    mt-2  ">
+        <article className="rounded-md border max-w-3xl mx-auto bg-primary-bg-light   tracking-tight   md:p-8 px-2 py-4    mt-2  ">
           <Content content={`${data.brandName}, ${data.model}`} title="Model" />
           <Content content={relDate} title="Rel. Date" />
           <Content content={data.networkBrands} title="Network" />

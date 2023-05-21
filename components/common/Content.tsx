@@ -18,9 +18,9 @@ const Content: React.FC<Props> = ({ content, title, none }) => {
             none && "border-b"
           }`}
         >
-          <h4 className="min-w-[125px] font-bold  text-sm md:text-base bg-slate-50 p-1 md:py-2   md:border-r ">
+          <p className="min-w-[125px] font-bold  text-primary-bg-dark bg-slate-50 p-1 md:py-2   md:border-r ">
             {title}
-          </h4>
+          </p>
           <ul className="flex-1 p-1 md:py-2 ">
             {content && (
               <li className="flex gap-3 ">
@@ -29,7 +29,7 @@ const Content: React.FC<Props> = ({ content, title, none }) => {
                     <BsCheckCircleFill className="text-xl bg-primary-bg-light text-[#8AC63C] " />
                   )}
                   {no && (
-                    <BsXCircleFill className="text-xl b text-[#CA321C] bg-primary-bg-light " />
+                    <BsXCircleFill className="text-xl  text-[#CA321C] bg-primary-bg-light " />
                   )}
                   {!yes && !no && content}
                 </p>
