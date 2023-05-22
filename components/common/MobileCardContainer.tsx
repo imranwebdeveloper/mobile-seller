@@ -2,6 +2,7 @@ import { MobileShortInfo } from "@/types/mobile";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
+import CardPrice from "./CardPrice";
 interface Props {
   data: MobileShortInfo[];
 }
@@ -33,11 +34,7 @@ const MobileCardContainer = ({ data }: Props) => {
                 <p>{item.model}</p>
               </main>
               <footer>
-                <p className="text-sm text-center font-bold text-link-text-light">
-                  {item.variant[0].unofficial
-                    ? `${item.variant[0]?.unofficial} Tk.`
-                    : "N/A"}
-                </p>
+                <CardPrice prices={item.variant} />
               </footer>
             </article>
           </Link>

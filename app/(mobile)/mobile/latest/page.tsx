@@ -10,6 +10,7 @@ const getData = async (pageNumber: string) => {
     `${process.env.API_URL}/mobiles/latest?page=${pageNumber}` as string,
     {
       headers: headers,
+      cache: "no-store",
     }
   );
   if (!res.ok) throw new Error(await res.json().then((data) => data.message));

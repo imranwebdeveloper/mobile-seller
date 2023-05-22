@@ -16,7 +16,7 @@ const Contents: React.FC<Props> = ({ title, contents, none }) => {
             none && "border-b"
           }`}
         >
-          <p className="min-w-[125px] font-bold   text-primary-bg-dark bg-slate-50 p-1 md:p-2 md:border-r">
+          <p className="min-w-[125px] font-bold   text-primary-bg-dark bg-slate-50 p-1 md:py-2 md:border-r">
             {title}
           </p>
           <ul className="flex-1 p-1 md:p-2">

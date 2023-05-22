@@ -10,7 +10,7 @@ const getData = async (slug: string, pageNumber?: string) => {
   url = pageNumber
     ? (`${process.env.API_URL}/mobiles/price/${slug}?page=${pageNumber}` as string)
     : (`${process.env.API_URL}/mobiles/price/${slug}` as string);
-  const res = await fetch(url, { headers });
+  const res = await fetch(url, { headers, cache: "no-cache" });
   if (!res.ok) throw new Error(await res.json().then((data) => data.message));
   return res.json();
 };

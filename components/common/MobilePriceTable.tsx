@@ -23,7 +23,7 @@ const MobilePriceTable: React.FC<Props> = ({ variants, date }) => {
             return (
               <tr key={i}>
                 <td className="whitespace-nowrap border py-2 ">
-                  {item.ram}/{item.rom} GB
+                  {item.ram}GB/{item.rom > 1000 ? "1TB" : `${item.rom}GB`}
                 </td>
                 <td className="whitespace-nowrap border py-2 ">
                   {item.official === 0 ? "-" : `${item.official} Tk`}

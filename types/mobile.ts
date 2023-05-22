@@ -1,6 +1,6 @@
 export interface Variant {
-  ram: string;
-  rom: string;
+  ram: number;
+  rom: number;
   official: number;
   unofficial: number;
 }

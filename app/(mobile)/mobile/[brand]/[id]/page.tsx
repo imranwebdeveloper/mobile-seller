@@ -13,7 +13,7 @@ import { headers } from "@/lib/fetchHeader";
 const getData = async (id: string) => {
   const res = await fetch(
     `${process.env.API_URL}/mobiles/model/${id}` as string,
-    { headers: headers }
+    { headers, cache: "no-cache" }
   );
   if (!res.ok) throw new Error(await res.json().then((data) => data.message));
   return res.json();
@@ -82,9 +82,9 @@ const ModelDetails = async ({ params }: { params: { id: string } }) => {
               alt={`${data.brandName} ${data.model} mobile`}
               src={data.imgUrl}
               width={150}
-              height={200}
+              height={180}
               priority
-              className="w-32 h-40 mx-auto"
+              className="max-w-[140px] max-h-40 mx-auto"
             />
             <div className="text-center">
               <p className="font-bold text-primary-bg-dark">{data.brandName}</p>
@@ -101,7 +101,8 @@ const ModelDetails = async ({ params }: { params: { id: string } }) => {
           </div>
         </article>
         <article className="rounded-md border max-w-3xl mx-auto bg-primary-bg-light   tracking-tight   md:p-8 px-2 py-4    mt-2  ">
-          <Content content={`${data.brandName}, ${data.model}`} title="Model" />
+          <Content content={data.brandName} title="Brand" />
+          <Content content={data.model} title="Model" />
           <Content content={relDate} title="Rel. Date" />
           <Content content={data.networkBrands} title="Network" />
           <Content content={data.simType} title="SIM Type" />
