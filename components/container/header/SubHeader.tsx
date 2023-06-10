@@ -19,7 +19,7 @@ const SubHeader: React.FC<Props> = ({ slug }) => {
     "Realme",
     "Oppo",
     "Vivo",
-    "Xioami",
+    "Xiaomi",
     "Asus",
   ];
 

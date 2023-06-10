@@ -3,7 +3,7 @@ const sitemap = async () => {
   const baseUrl = process.env.FULL_DOMAIN_URL as string;
   const data = await getAllMobiles();
   const brandNames = new Set();
-  data.forEach((item) => brandNames.add(item.brandName));
+  data.forEach((item) => brandNames.add(item.brand));
   const brandNamesArray = Array.from(brandNames);
   const brandRoute = brandNamesArray.map((item: any) => {
     return {
@@ -14,7 +14,7 @@ const sitemap = async () => {
 
   const modelRoute = data.map((item) => {
     return {
-      url: `${baseUrl}/mobile/${item.brandName.toLowerCase()}/${item.model_id}`,
+      url: `${baseUrl}/mobile/${item.brand.toLowerCase()}/${item.model_id}`,
       lastModified: new Date(item.updatedAt),
     };
   });

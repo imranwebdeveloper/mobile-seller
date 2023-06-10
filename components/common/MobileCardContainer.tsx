@@ -15,26 +15,26 @@ const MobileCardContainer = ({ data }: Props) => {
         return (
           <Link
             key={item._id}
-            href={`mobile/${item.brandName.toLowerCase()}/${item.model_id}`}
+            href={`mobile/${item.brand.toLowerCase()}/${item.model_id}`}
           >
             <article className="transition cursor-pointer hover:scale-105  flex flex-col border rounded-md bg-primary-bg-light p-4">
               <header>
                 <Image
-                  src={item.imgUrl}
+                  src={item.img_url}
                   width={100}
                   height={120}
                   priority
-                  alt={`${item.brandName} ${item.model} mobile`}
+                  alt={`${item.brand} ${item.model} mobile`}
                   className="w-24 h-28 md:w-28 md:h-32 mx-auto lg:w-32 lg:h-36 "
                 />
               </header>
 
               <main className="text-sm text-center mt-1">
-                <p className="font-bold md:text-base ">{item.brandName}</p>
+                <p className="font-bold md:text-base ">{item.brand}</p>
                 <p>{item.model}</p>
               </main>
               <footer>
-                <CardPrice prices={item.variant} />
+                <CardPrice prices={item.variants} />
               </footer>
             </article>
           </Link>

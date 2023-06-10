@@ -1,5 +1,6 @@
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 import { mobileState } from "../../data/mobile";
+import { Mobile } from "@/types/mobile";
 
 interface InputPayload {
   name: string;
@@ -23,9 +24,13 @@ const mobileSlice = createSlice({
     removeInput: (state: any, action: PayloadAction<string>) => {
       state[action.payload].pop();
     },
+    setMobile: (state: any, action: PayloadAction<Mobile>) => {
+      return { ...state, ...action.payload };
+    },
   },
 });
 
-export const { handleInput, addInput, removeInput } = mobileSlice.actions;
+export const { handleInput, addInput, removeInput, setMobile } =
+  mobileSlice.actions;
 
 export default mobileSlice.reducer;

@@ -40,4 +40,9 @@ export const mobileState = {
   sensor: "",
   others: [],
   inTheBox: [],
+
+  identifier: "",
+  positioning: "",
+  frontVideo: "",
+  mainVideo: "",
 };

@@ -13,7 +13,7 @@ const NavContainer = () => {
       <div className="layout container px-1">
         <SubHeader slug={brand ? brand : ""} />
         <PriceRange slug={slug ? slug : ""} />
-        <PhoneCategory slug={slug ? slug : ""} />
+        {/* <PhoneCategory slug={slug ? slug : ""} /> */}
       </div>
     </section>
   );

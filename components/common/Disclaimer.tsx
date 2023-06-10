@@ -4,7 +4,7 @@ import React from "react";
 
 const Disclaimer = () => {
   return (
-    <p className="text-center py-4">
+    <p className="md:text-center py-4">
       <small>
         <strong>Disclaimer: </strong>We do not guarantee that the information on
         our page is 100% accurate.

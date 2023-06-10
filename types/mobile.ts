@@ -51,14 +51,38 @@ export interface Mobile {
   imgUrl: string;
   updatedAt: string;
   model_id?: string;
+  identifier: string;
+  positioning: string;
+  frontVideo: string;
+  mainVideo: string;
 }
 
 export interface MobileShortInfo {
   _id: string;
-  brandName: string;
+  brand: string;
   model: string;
-  variant: Variant[];
-  imgUrl: string;
+  variants: Variant[];
+  img_url: string;
   updatedAt: string;
   model_id: string;
+}
+
+export interface Phone {
+  releasedDate: any;
+  title: string;
+  brand: string;
+  model: string;
+  model_id: string;
+  category: string;
+  variants: {
+    ROM: number;
+    RAM: number;
+    official: number;
+    unofficial: number;
+  }[];
+  status: string;
+  approved: boolean;
+  img_url: string;
+  content: any;
+  updatedAt: string;
 }

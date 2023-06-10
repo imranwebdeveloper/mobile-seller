@@ -7,19 +7,37 @@ import MobileFormValidator from "@/components/admin/form/mobile/MobileFormValida
 import Select from "@/components/admin/form/mobile/Select";
 import VariantInput from "@/components/admin/form/mobile/VariantInput";
 import Accordion from "@/components/admin/shared/Accordion";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "@/redux/store";
 import LoadingSmall from "../../shared/LoadingSmall";
 import { useAddNewMobileMutation } from "@/redux/api/adminApiSlice";
 import { toast } from "react-hot-toast";
 import { headers } from "@/lib/fetchHeader";
+import { setMobile } from "@/redux/slices/mobileSlice";
 
 const FormWrapper = () => {
   const newMobile = useSelector((state: RootState) => state.mobileInfo);
+  const dispatch = useDispatch();
   const [img, setImg] = useState("");
+  const [csv, setCsv] = useState("");
   const [loading, setLoading] = useState(false);
 
   const [addNewMobile] = useAddNewMobileMutation();
+
+  const CSVHandler = async () => {
+    setLoading(true);
+    const formData = new FormData();
+    formData.append("file", csv);
+    const res = await fetch(`${process.env.API_URL}/upload/csv`, {
+      method: "POST",
+      body: formData,
+      headers: headers,
+    });
+    const { data } = await res.json();
+    dispatch(setMobile(data));
+    setLoading(false);
+  };
+
   const saveNewMobile = async () => {
     try {
       if (img) {
@@ -46,6 +64,28 @@ const FormWrapper = () => {
 
   return (
     <>
+      <div
+        className={`flex items-center justify-between bg-primary-bg-light p-4 rounded-md gap-4 mb-4`}
+      >
+        <div className="flex items-center">
+          <label className="min-w-[100px]">Upload CSV File</label>
+          <input
+            type="file"
+            className="w-full border p-3 outline-none "
+            onChange={(e) => setCsv(e.target.files?.[0] as any)}
+            accept=".csv"
+            required
+          />
+        </div>
+        {loading ? (
+          <LoadingSmall />
+        ) : (
+          <button className="btn-primary" onClick={CSVHandler}>
+            Process File
+          </button>
+        )}
+      </div>
+
       <div className=" mb-2 flex justify-end gap-4">
         {loading ? (
           <LoadingSmall />
