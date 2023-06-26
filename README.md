@@ -6,7 +6,7 @@ Live Link : https://mobile-seller.vercel.app
 
 ## Frontend Development
 
-- typeScript
+- TypeScript
 - Redux
 - NextJS
 - Tailwind CSS
